@@ -1,0 +1,16 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+*.vsidx
+*.cache
+*.editorconfig
+/src/FitTech.Api/obj
+/src/FitTech.Application/obj
+/src/FitTech.Comunication/obj
+/src/FitTech.Domain/obj
+/src/FitTech.Exceptions/obj
+/src/FitTech.Infrastructure/obj
+/.vs/FitTech/v17
+/.vs
+/tests/FitTech.Tests/obj
