@@ -1,6 +1,6 @@
 ﻿namespace FitTech.Domain.Entities
 {
-    public class Adress : BaseEntity
+    public class Address : BaseEntity
     {
         public string Street { get; set; }
         public string City { get; set; }
