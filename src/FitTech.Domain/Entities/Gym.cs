@@ -2,7 +2,7 @@
 {
     public class Gym : BaseEntity
     {
-
+        public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public string EmailAddress { get; set; }
         public Address Address { get; set; }
