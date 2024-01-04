@@ -117,14 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EMPTY_CITY" xml:space="preserve">
+    <value>A propriedade "City" não pode estar vazia.</value>
+  </data>
+  <data name="EMPTY_COUNTRY" xml:space="preserve">
+    <value>A propriedade "Country" não pode estar vazia.</value>
+  </data>
   <data name="EMPTY_EMAIL" xml:space="preserve">
     <value>A propriedade "EmailAddress" não pode estar vazia.</value>
   </data>
   <data name="EMPTY_NAME" xml:space="preserve">
     <value>A propriedade "Name" não pode estar vazia.</value>
   </data>
+  <data name="EMPTY_NUMBER" xml:space="preserve">
+    <value>A propriedade "Number" não pode estar vazia.</value>
+  </data>
   <data name="EMPTY_PHONE_NUMBER" xml:space="preserve">
     <value>A propriedade "PhoneNumber" não pode estar vazia.</value>
+  </data>
+  <data name="EMPTY_POSTAL_CODE" xml:space="preserve">
+    <value>A propriedade "PostalCode" não pode estar vazia.</value>
+  </data>
+  <data name="EMPTY_STATE" xml:space="preserve">
+    <value>A propriedade "State" não pode estar vazia.</value>
+  </data>
+  <data name="EMPTY_STREET" xml:space="preserve">
+    <value>A propriedade "Street" não pode estar vazia.</value>
   </data>
   <data name="INVALID_EMAIL" xml:space="preserve">
     <value>Esse e-mail não é válido.</value>
@@ -134,5 +152,11 @@
   </data>
   <data name="INVALID_PHONE_NUMBER" xml:space="preserve">
     <value>Este número de telefone não é válido, deve seguir o padrão (XX) X XXXX-XXXX.</value>
+  </data>
+  <data name="INVALID_POSTAL_CODE" xml:space="preserve">
+    <value>Este CEP não é válido, deve seguir o padrão XXXXX-XXX.</value>
+  </data>
+  <data name="INVALID_STATE" xml:space="preserve">
+    <value>Na propriedade “Estado” deve ser informada apenas a sigla do estado, exemplo: SP.</value>
   </data>
 </root>

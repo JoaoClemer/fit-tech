@@ -61,6 +61,24 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;City&quot; cannot be empty..
+        /// </summary>
+        public static string EMPTY_CITY {
+            get {
+                return ResourceManager.GetString("EMPTY_CITY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;Country&quot; cannot be empty..
+        /// </summary>
+        public static string EMPTY_COUNTRY {
+            get {
+                return ResourceManager.GetString("EMPTY_COUNTRY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;EmailAddress&quot; cannot be empty..
         /// </summary>
         public static string EMPTY_EMAIL {
@@ -79,11 +97,47 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;Number&quot; cannot be empty..
+        /// </summary>
+        public static string EMPTY_NUMBER {
+            get {
+                return ResourceManager.GetString("EMPTY_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;PhoneNumber&quot; cannot be empty..
         /// </summary>
         public static string EMPTY_PHONE_NUMBER {
             get {
                 return ResourceManager.GetString("EMPTY_PHONE_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;PostalCode&quot; cannot be empty..
+        /// </summary>
+        public static string EMPTY_POSTAL_CODE {
+            get {
+                return ResourceManager.GetString("EMPTY_POSTAL_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;State&quot; cannot be empty..
+        /// </summary>
+        public static string EMPTY_STATE {
+            get {
+                return ResourceManager.GetString("EMPTY_STATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;Street&quot; cannot be empty..
+        /// </summary>
+        public static string EMPTY_STREET {
+            get {
+                return ResourceManager.GetString("EMPTY_STREET", resourceCulture);
             }
         }
         
@@ -111,6 +165,24 @@ namespace FitTech.Exceptions {
         public static string INVALID_PHONE_NUMBER {
             get {
                 return ResourceManager.GetString("INVALID_PHONE_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a This postal code is not valid, it must follow the pattern XXXXX-XXX..
+        /// </summary>
+        public static string INVALID_POSTAL_CODE {
+            get {
+                return ResourceManager.GetString("INVALID_POSTAL_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a In the “State” property, only the state acronym must be entered. Exemple: SP..
+        /// </summary>
+        public static string INVALID_STATE {
+            get {
+                return ResourceManager.GetString("INVALID_STATE", resourceCulture);
             }
         }
     }

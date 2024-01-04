@@ -30,6 +30,10 @@ namespace FitTech.Infrastructure.Context.Mappings
                 .HasMaxLength(70)
                 .IsRequired();
 
+            builder.Property(x => x.Number)
+                .HasMaxLength(10)
+                .IsRequired();
+
             builder.Property(x => x.CreateDate)
                 .IsRequired();
         }
