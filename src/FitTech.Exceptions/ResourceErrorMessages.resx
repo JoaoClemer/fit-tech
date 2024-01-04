@@ -118,31 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EMPTY_CITY" xml:space="preserve">
-    <value>The property "City" cannot be empty.</value>
+    <value>The property City cannot be empty.</value>
   </data>
   <data name="EMPTY_COUNTRY" xml:space="preserve">
-    <value>The property "Country" cannot be empty.</value>
+    <value>The property Country cannot be empty.</value>
   </data>
   <data name="EMPTY_EMAIL" xml:space="preserve">
-    <value>The property "EmailAddress" cannot be empty.</value>
+    <value>The property EmailAddress cannot be empty.</value>
   </data>
   <data name="EMPTY_NAME" xml:space="preserve">
-    <value>The property "Name" cannot be empty.</value>
+    <value>The property Name cannot be empty.</value>
   </data>
   <data name="EMPTY_NUMBER" xml:space="preserve">
-    <value>The property "Number" cannot be empty.</value>
+    <value>The property Number cannot be empty.</value>
   </data>
   <data name="EMPTY_PHONE_NUMBER" xml:space="preserve">
-    <value>The property "PhoneNumber" cannot be empty.</value>
+    <value>The property PhoneNumber cannot be empty.</value>
   </data>
   <data name="EMPTY_POSTAL_CODE" xml:space="preserve">
-    <value>The property "PostalCode" cannot be empty.</value>
+    <value>The property PostalCode cannot be empty.</value>
   </data>
   <data name="EMPTY_STATE" xml:space="preserve">
-    <value>The property "State" cannot be empty.</value>
+    <value>The property State cannot be empty.</value>
   </data>
   <data name="EMPTY_STREET" xml:space="preserve">
-    <value>The property "Street" cannot be empty.</value>
+    <value>The property Street cannot be empty.</value>
   </data>
   <data name="INVALID_EMAIL" xml:space="preserve">
     <value>This e-mail is not valid.</value>
@@ -157,6 +157,9 @@
     <value>This postal code is not valid, it must follow the pattern XXXXX-XXX.</value>
   </data>
   <data name="INVALID_STATE" xml:space="preserve">
-    <value>In the “State” property, only the state acronym must be entered. Exemple: SP.</value>
+    <value>In the State property, only the state acronym must be entered. Exemple: SP.</value>
+  </data>
+  <data name="UNKNOW_ERROR" xml:space="preserve">
+    <value>Unknow error.</value>
   </data>
 </root>

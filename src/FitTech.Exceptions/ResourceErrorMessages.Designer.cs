@@ -61,7 +61,7 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;City&quot; cannot be empty..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property City cannot be empty..
         /// </summary>
         public static string EMPTY_CITY {
             get {
@@ -70,7 +70,7 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;Country&quot; cannot be empty..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property Country cannot be empty..
         /// </summary>
         public static string EMPTY_COUNTRY {
             get {
@@ -79,7 +79,7 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;EmailAddress&quot; cannot be empty..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property EmailAddress cannot be empty..
         /// </summary>
         public static string EMPTY_EMAIL {
             get {
@@ -88,7 +88,7 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;Name&quot; cannot be empty..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property Name cannot be empty..
         /// </summary>
         public static string EMPTY_NAME {
             get {
@@ -97,7 +97,7 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;Number&quot; cannot be empty..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property Number cannot be empty..
         /// </summary>
         public static string EMPTY_NUMBER {
             get {
@@ -106,7 +106,7 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;PhoneNumber&quot; cannot be empty..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property PhoneNumber cannot be empty..
         /// </summary>
         public static string EMPTY_PHONE_NUMBER {
             get {
@@ -115,7 +115,7 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;PostalCode&quot; cannot be empty..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property PostalCode cannot be empty..
         /// </summary>
         public static string EMPTY_POSTAL_CODE {
             get {
@@ -124,7 +124,7 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;State&quot; cannot be empty..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property State cannot be empty..
         /// </summary>
         public static string EMPTY_STATE {
             get {
@@ -133,7 +133,7 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The property &quot;Street&quot; cannot be empty..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property Street cannot be empty..
         /// </summary>
         public static string EMPTY_STREET {
             get {
@@ -178,11 +178,20 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a In the “State” property, only the state acronym must be entered. Exemple: SP..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a In the State property, only the state acronym must be entered. Exemple: SP..
         /// </summary>
         public static string INVALID_STATE {
             get {
                 return ResourceManager.GetString("INVALID_STATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Unknow error..
+        /// </summary>
+        public static string UNKNOW_ERROR {
+            get {
+                return ResourceManager.GetString("UNKNOW_ERROR", resourceCulture);
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using FitTech.Comunication.Requests.Gym;
+using FitTech.Exceptions.ExceptionsBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace FitTech.Application.UseCases.Gym.Create
 {
     public class CreateGymUseCase
     {
-        public void Execute(RequestCreateGymDTO request)
+        public async Task Execute(RequestCreateGymDTO request)
         {
-
+            Validate(request);
         }
 
         private void Validate(RequestCreateGymDTO request)
@@ -22,8 +23,8 @@ namespace FitTech.Application.UseCases.Gym.Create
 
             if(!result.IsValid)
             {
-                var errorMessages = result.Errors.Select(error => error.ErrorMessage);
-                throw new Exception();
+                var errorMessages = result.Errors.Select(error => error.ErrorMessage).ToList();
+                throw new ValidationErrorsException(errorMessages);
             }
         }
     }
