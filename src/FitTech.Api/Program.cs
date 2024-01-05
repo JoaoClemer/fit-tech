@@ -1,4 +1,7 @@
+using AutoMapper;
 using FitTech.Api.Filters;
+using FitTech.Application.Extensions;
+using FitTech.Application.Services.AutoMapper;
 using FitTech.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,8 +14,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplication();
 
 builder.Services.AddMvc(option => option.Filters.Add(typeof(ExceptionFilter)));
+
+builder.Services.AddScoped(provider => new MapperConfiguration(cfg =>
+{
+    cfg.AddProfile(new AutoMapperConfiguration());
+}).CreateMapper());
 
 var app = builder.Build();
 

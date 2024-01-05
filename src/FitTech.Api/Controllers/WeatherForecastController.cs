@@ -1,3 +1,4 @@
+using FitTech.Application.UseCases.Gym.Create;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FitTech.Api.Controllers
@@ -6,28 +7,27 @@ namespace FitTech.Api.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
-
+       
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<ActionResult> Get([FromServices]ICreateGymUseCase useCase)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            await useCase.Execute(new Comunication.Requests.Gym.RequestCreateGymDTO
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+                Name = "SmartTech",
+                EmailAddress = "stmart@tech.com",
+                PhoneNumber = "11 9 4963-2007",
+                Address = new Comunication.Requests.Address.RequestRegisterAddressDTO
+                {
+                    City = "São Paulo",
+                    Country = "Brasil",
+                    State = "SP",
+                    Number = "22",
+                    PostalCode = "00000-000",
+                    Street = "Rua Lurdes"
+                }
+            });
+
+            return Ok();
         }
     }
 }
