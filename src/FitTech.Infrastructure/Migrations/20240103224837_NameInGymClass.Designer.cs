@@ -3,6 +3,7 @@ using System;
 using FitTech.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitTech.Infrastructure.Migrations
 {
     [DbContext(typeof(FitTechContext))]
-    partial class FitTechContextModelSnapshot : ModelSnapshot
+    [Migration("20240103224837_NameInGymClass")]
+    partial class NameInGymClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,11 +39,6 @@ namespace FitTech.Infrastructure.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Number")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
 
                     b.Property<string>("PostalCode")
                         .IsRequired()

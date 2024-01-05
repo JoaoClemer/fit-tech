@@ -1,6 +1,12 @@
-﻿namespace FitTech.Domain.Entities
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FitTech.Comunication.Requests.Address
 {
-    public class Address : BaseEntity
+    public class RequestRegisterAddressDTO
     {
         public string Street { get; set; }
         public string City { get; set; }

@@ -1,4 +1,7 @@
-﻿using FitTech.Infrastructure.Context;
+﻿using FitTech.Domain.Repositories;
+using FitTech.Domain.Repositories.Gym;
+using FitTech.Infrastructure.Context;
+using FitTech.Infrastructure.RepositoryAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +13,8 @@ namespace FitTech.Infrastructure.Extensions
         public static void AddInfrastructure(this IServiceCollection service, IConfiguration configuration)
         {
             AddContext(service, configuration);
+            AddRepositories(service);
+            AddUnitOfWork(service);
         }
 
         private static void AddContext(IServiceCollection service, IConfiguration configuration)
@@ -22,6 +27,17 @@ namespace FitTech.Infrastructure.Extensions
                 dbContextOptions.UseMySql(connectionString, serverVersion);
             });
 
+        }
+
+        private static void AddRepositories(this IServiceCollection service)
+        {
+            service.AddScoped<IGymReadOnlyRepository,GymRepository>()
+                .AddScoped<IGymWriteOnlyRepository,GymRepository>();
+        }
+
+        private static void AddUnitOfWork(this IServiceCollection service)
+        {
+            service.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }
