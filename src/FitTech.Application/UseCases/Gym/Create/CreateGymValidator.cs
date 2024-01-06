@@ -15,7 +15,7 @@ namespace FitTech.Application.UseCases.Gym.Create
             
             RuleFor(r => r.PhoneNumber).NotEmpty().WithMessage(ResourceErrorMessages.EMPTY_PHONE_NUMBER);
 
-            RuleFor(r => r.Address).NotEmpty();
+            RuleFor(r => r.Address).NotEmpty().WithMessage(ResourceErrorMessages.EMPTY_ADDRESS);
 
             When(r => !string.IsNullOrWhiteSpace(r.EmailAddress), () =>
             {

@@ -61,6 +61,15 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property Address cannot be empty..
+        /// </summary>
+        public static string EMPTY_ADDRESS {
+            get {
+                return ResourceManager.GetString("EMPTY_ADDRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The property City cannot be empty..
         /// </summary>
         public static string EMPTY_CITY {
