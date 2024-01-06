@@ -6,5 +6,6 @@ namespace FitTech.Domain.Repositories.Gym
     {
         Task<Entities.Gym?> GetGymByEmail(string email);
         Task<Entities.Gym?> GetGymById(int id);
+        Task<Entities.Gym?> GetGymByName(string name);
     }
 }

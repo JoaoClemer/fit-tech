@@ -144,6 +144,12 @@
   <data name="EMPTY_STREET" xml:space="preserve">
     <value>A propriedade Street não pode estar vazia.</value>
   </data>
+  <data name="GYM_EMAIL_IN_USE" xml:space="preserve">
+    <value>Uma academia já está utilizando esse e-mail.</value>
+  </data>
+  <data name="GYM_NAME_IN_USE" xml:space="preserve">
+    <value>Uma academia já está utilizando esse nome.</value>
+  </data>
   <data name="INVALID_EMAIL" xml:space="preserve">
     <value>Esse e-mail não é válido.</value>
   </data>

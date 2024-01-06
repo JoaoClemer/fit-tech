@@ -142,6 +142,24 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A gym is already using this e-mail..
+        /// </summary>
+        public static string GYM_EMAIL_IN_USE {
+            get {
+                return ResourceManager.GetString("GYM_EMAIL_IN_USE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A gym is already using this name..
+        /// </summary>
+        public static string GYM_NAME_IN_USE {
+            get {
+                return ResourceManager.GetString("GYM_NAME_IN_USE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a This e-mail is not valid..
         /// </summary>
         public static string INVALID_EMAIL {

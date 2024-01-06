@@ -28,5 +28,10 @@ namespace FitTech.Infrastructure.RepositoryAccess
         {
             return await _context.Gyms.FirstOrDefaultAsync(g => g.Id.Equals(id));
         }
+
+        public async Task<Gym?> GetGymByName(string name)
+        {
+            return await _context.Gyms.FirstOrDefaultAsync(g => g.Name.Equals(name));
+        }
     }
 }
