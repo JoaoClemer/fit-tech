@@ -33,12 +33,10 @@ namespace FitTech.Application.UseCases.Gym.Create
 
             await _unitOfWork.Commit();
 
-            var createdGym = await _readOnlyRepository.GetGymByEmail(entity.EmailAddress);
-
             return new ResponseCreateGymDTO
             {
-                Id = createdGym.Id,
-                Name = createdGym.Name
+                EmailAddress = entity.EmailAddress,
+                Name = entity.Name
             };
         }
 
@@ -55,7 +53,7 @@ namespace FitTech.Application.UseCases.Gym.Create
             }
 
             var nameInUse = await _readOnlyRepository.GetGymByName(request.Name);
-            if (emailInUSe != null)
+            if (nameInUse != null)
             {
                 result.Errors.Add(new FluentValidation.Results.ValidationFailure("Name", ResourceErrorMessages.GYM_NAME_IN_USE));
             }

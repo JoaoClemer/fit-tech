@@ -5,14 +5,14 @@ using FitTech.Tests.Utils.Requests;
 using FluentAssertions;
 using Xunit;
 
-namespace FitTech.Tests.Validators.Address.Register
+namespace FitTech.Tests.Tests.Validators.Address.Register
 {
     public class RegisterAddressValidatorTest
     {
         [Fact]
         public void Valid_Success()
         {
-            var validator = new RegisterAddressValidator();           
+            var validator = new RegisterAddressValidator();
 
             var request = RequestRegisterAddressBuilder.Build();
 

@@ -5,7 +5,7 @@ using FluentAssertions;
 using FitTech.Exceptions;
 using FitTech.Tests.Utils.Requests;
 
-namespace FitTech.Tests.Validators.Gym.Create
+namespace FitTech.Tests.Tests.Validators.Gym.Create
 {
     public class CreateGymValidatorTest
     {
