@@ -1,6 +1,6 @@
 using FitTech.Application.UseCases.Gym.Create;
 using FitTech.Comunication.Requests.Gym;
-using FitTech.Comunication.Responses;
+using FitTech.Comunication.Responses.Gym;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FitTech.Api.Controllers
