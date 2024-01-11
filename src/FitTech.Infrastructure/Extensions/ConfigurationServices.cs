@@ -19,13 +19,18 @@ namespace FitTech.Infrastructure.Extensions
 
         private static void AddContext(IServiceCollection service, IConfiguration configuration)
         {
-            var connectionString = configuration.GetFullConnection();
-            var serverVersion = new MySqlServerVersion(ServerVersion.AutoDetect(connectionString));
+            bool.TryParse(configuration.GetSection("Configuration:DataBaseInMemory").Value, out bool dataBaseInMemory);
 
-            service.AddDbContext<FitTechContext>(dbContextOptions =>
+            if (!dataBaseInMemory)
             {
-                dbContextOptions.UseMySql(connectionString, serverVersion);
-            });
+                var connectionString = configuration.GetFullConnection();
+                var serverVersion = new MySqlServerVersion(ServerVersion.AutoDetect(connectionString));
+
+                service.AddDbContext<FitTechContext>(dbContextOptions =>
+                {
+                    dbContextOptions.UseMySql(connectionString, serverVersion);
+                });
+            }            
 
         }
 
