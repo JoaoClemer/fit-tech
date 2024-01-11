@@ -1,4 +1,5 @@
 ﻿using FitTech.Comunication.Requests.Gym;
+using FitTech.Comunication.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace FitTech.Application.UseCases.Gym.Create
 {
     public interface ICreateGymUseCase
     {
-        Task Execute(RequestCreateGymDTO request);
+        Task<ResponseCreateGymDTO> Execute(RequestCreateGymDTO request);
     }
 }

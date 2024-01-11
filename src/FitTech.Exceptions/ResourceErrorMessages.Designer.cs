@@ -61,6 +61,15 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property Address cannot be empty..
+        /// </summary>
+        public static string EMPTY_ADDRESS {
+            get {
+                return ResourceManager.GetString("EMPTY_ADDRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The property City cannot be empty..
         /// </summary>
         public static string EMPTY_CITY {
@@ -138,6 +147,24 @@ namespace FitTech.Exceptions {
         public static string EMPTY_STREET {
             get {
                 return ResourceManager.GetString("EMPTY_STREET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A gym is already using this e-mail..
+        /// </summary>
+        public static string GYM_EMAIL_IN_USE {
+            get {
+                return ResourceManager.GetString("GYM_EMAIL_IN_USE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A gym is already using this name..
+        /// </summary>
+        public static string GYM_NAME_IN_USE {
+            get {
+                return ResourceManager.GetString("GYM_NAME_IN_USE", resourceCulture);
             }
         }
         
