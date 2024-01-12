@@ -88,11 +88,38 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property Cpf cannot be empty..
+        /// </summary>
+        public static string EMPTY_CPF {
+            get {
+                return ResourceManager.GetString("EMPTY_CPF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The property EmailAddress cannot be empty..
         /// </summary>
         public static string EMPTY_EMAIL {
             get {
                 return ResourceManager.GetString("EMPTY_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property EmployeeType cannot be empty..
+        /// </summary>
+        public static string EMPTY_EMPLOYEE_TYPE {
+            get {
+                return ResourceManager.GetString("EMPTY_EMPLOYEE_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property GymId cannot be empty..
+        /// </summary>
+        public static string EMPTY_GYM_ID {
+            get {
+                return ResourceManager.GetString("EMPTY_GYM_ID", resourceCulture);
             }
         }
         
@@ -115,6 +142,15 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property Password cannot be empty..
+        /// </summary>
+        public static string EMPTY_PASSWORD {
+            get {
+                return ResourceManager.GetString("EMPTY_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The property PhoneNumber cannot be empty..
         /// </summary>
         public static string EMPTY_PHONE_NUMBER {
@@ -129,6 +165,15 @@ namespace FitTech.Exceptions {
         public static string EMPTY_POSTAL_CODE {
             get {
                 return ResourceManager.GetString("EMPTY_POSTAL_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property Salary cannot be empty..
+        /// </summary>
+        public static string EMPTY_SALARY {
+            get {
+                return ResourceManager.GetString("EMPTY_SALARY", resourceCulture);
             }
         }
         
@@ -165,6 +210,15 @@ namespace FitTech.Exceptions {
         public static string GYM_NAME_IN_USE {
             get {
                 return ResourceManager.GetString("GYM_NAME_IN_USE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a This CPF is not valid, it must follow the pattern XXX.XXX.XXX-XX.
+        /// </summary>
+        public static string INVALID_CPF {
+            get {
+                return ResourceManager.GetString("INVALID_CPF", resourceCulture);
             }
         }
         

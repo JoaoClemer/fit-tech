@@ -126,8 +126,17 @@
   <data name="EMPTY_COUNTRY" xml:space="preserve">
     <value>The property Country cannot be empty.</value>
   </data>
+  <data name="EMPTY_CPF" xml:space="preserve">
+    <value>The property Cpf cannot be empty.</value>
+  </data>
   <data name="EMPTY_EMAIL" xml:space="preserve">
     <value>The property EmailAddress cannot be empty.</value>
+  </data>
+  <data name="EMPTY_EMPLOYEE_TYPE" xml:space="preserve">
+    <value>The property EmployeeType cannot be empty.</value>
+  </data>
+  <data name="EMPTY_GYM_ID" xml:space="preserve">
+    <value>The property GymId cannot be empty.</value>
   </data>
   <data name="EMPTY_NAME" xml:space="preserve">
     <value>The property Name cannot be empty.</value>
@@ -135,11 +144,17 @@
   <data name="EMPTY_NUMBER" xml:space="preserve">
     <value>The property Number cannot be empty.</value>
   </data>
+  <data name="EMPTY_PASSWORD" xml:space="preserve">
+    <value>The property Password cannot be empty.</value>
+  </data>
   <data name="EMPTY_PHONE_NUMBER" xml:space="preserve">
     <value>The property PhoneNumber cannot be empty.</value>
   </data>
   <data name="EMPTY_POSTAL_CODE" xml:space="preserve">
     <value>The property PostalCode cannot be empty.</value>
+  </data>
+  <data name="EMPTY_SALARY" xml:space="preserve">
+    <value>The property Salary cannot be empty.</value>
   </data>
   <data name="EMPTY_STATE" xml:space="preserve">
     <value>The property State cannot be empty.</value>
@@ -152,6 +167,9 @@
   </data>
   <data name="GYM_NAME_IN_USE" xml:space="preserve">
     <value>A gym is already using this name.</value>
+  </data>
+  <data name="INVALID_CPF" xml:space="preserve">
+    <value>This CPF is not valid, it must follow the pattern XXX.XXX.XXX-XX</value>
   </data>
   <data name="INVALID_EMAIL" xml:space="preserve">
     <value>This e-mail is not valid.</value>

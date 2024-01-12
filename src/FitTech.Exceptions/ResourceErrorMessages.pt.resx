@@ -126,8 +126,17 @@
   <data name="EMPTY_COUNTRY" xml:space="preserve">
     <value>A propriedade Country não pode estar vazia.</value>
   </data>
+  <data name="EMPTY_CPF" xml:space="preserve">
+    <value>A propriedade Cpf não pode estar vazia.</value>
+  </data>
   <data name="EMPTY_EMAIL" xml:space="preserve">
     <value>A propriedade EmailAddress não pode estar vazia.</value>
+  </data>
+  <data name="EMPTY_EMPLOYEE_TYPE" xml:space="preserve">
+    <value>A propriedade EmployeeType não pode estar vazia.</value>
+  </data>
+  <data name="EMPTY_GYM_ID" xml:space="preserve">
+    <value>A propriedade GymId não pode estar vazia.</value>
   </data>
   <data name="EMPTY_NAME" xml:space="preserve">
     <value>A propriedade Name não pode estar vazia.</value>
@@ -135,11 +144,17 @@
   <data name="EMPTY_NUMBER" xml:space="preserve">
     <value>A propriedade Number não pode estar vazia.</value>
   </data>
+  <data name="EMPTY_PASSWORD" xml:space="preserve">
+    <value>A propriedade Password não pode estar vazia.</value>
+  </data>
   <data name="EMPTY_PHONE_NUMBER" xml:space="preserve">
     <value>A propriedade PhoneNumber não pode estar vazia.</value>
   </data>
   <data name="EMPTY_POSTAL_CODE" xml:space="preserve">
     <value>A propriedade PostalCode não pode estar vazia.</value>
+  </data>
+  <data name="EMPTY_SALARY" xml:space="preserve">
+    <value>A propriedade Salary não pode estar vazia.</value>
   </data>
   <data name="EMPTY_STATE" xml:space="preserve">
     <value>A propriedade State não pode estar vazia.</value>
@@ -152,6 +167,9 @@
   </data>
   <data name="GYM_NAME_IN_USE" xml:space="preserve">
     <value>Uma academia já está utilizando esse nome.</value>
+  </data>
+  <data name="INVALID_CPF" xml:space="preserve">
+    <value>Este CPF não é válido, deve seguir o padrão XXX.XXX.XXX-XX</value>
   </data>
   <data name="INVALID_EMAIL" xml:space="preserve">
     <value>Esse e-mail não é válido.</value>
