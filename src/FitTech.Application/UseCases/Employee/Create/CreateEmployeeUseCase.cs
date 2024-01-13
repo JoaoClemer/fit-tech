@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FitTech.Application.Services.Cryptography;
 using FitTech.Comunication.Requests.Employee;
 using FitTech.Comunication.Responses.Employee;
 using FitTech.Domain.Repositories;
@@ -16,19 +17,22 @@ namespace FitTech.Application.UseCases.Employee.Create
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfwork;
         private readonly IGymReadOnlyRepository _gymReadOnlyRepository;
+        private readonly PasswordEncryptor _passwordEncryptor;
 
         public CreateEmployeeUseCase(
             IEmployeeWriteOnlyRepository writeOnlyRepository, 
             IEmployeeReadOnlyRepository readOnlyRepository, 
             IMapper mapper, 
             IUnitOfWork unitOfwork,
-            IGymReadOnlyRepository gymReadOnlyRepository)
+            IGymReadOnlyRepository gymReadOnlyRepository,
+            PasswordEncryptor passwordEncryptor)
         {
             _writeOnlyRepository = writeOnlyRepository;
             _readOnlyRepository = readOnlyRepository;
             _mapper = mapper;
             _unitOfwork = unitOfwork;
             _gymReadOnlyRepository = gymReadOnlyRepository;
+            _passwordEncryptor = passwordEncryptor;
             
         }
         public async Task<ResponseCreateEmployeeDTO> Execute(RequestCreateEmployeeDTO request)
@@ -39,7 +43,7 @@ namespace FitTech.Application.UseCases.Employee.Create
             var gymEntity = await _gymReadOnlyRepository.GetGymById(request.GymId);
 
             entity.Gym = gymEntity;
-            entity.Password = "cript";
+            entity.Password = _passwordEncryptor.Encrypt(request.Password);
 
             await _writeOnlyRepository.CreateEmployee(entity);
 
