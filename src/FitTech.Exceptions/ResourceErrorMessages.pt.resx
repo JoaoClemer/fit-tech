@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EMPLOYEE_CPF_IN_USE" xml:space="preserve">
+    <value>Um funcionário já está utilizando esse CPF.</value>
+  </data>
+  <data name="EMPLOYEE_EMAIL_IN_USE" xml:space="preserve">
+    <value>Um funcionário já está utilizando esse e-mail.</value>
+  </data>
   <data name="EMPTY_ADDRESS" xml:space="preserve">
     <value>A propriedade Address não pode estar vazia.</value>
   </data>
@@ -167,6 +173,9 @@
   </data>
   <data name="GYM_NAME_IN_USE" xml:space="preserve">
     <value>Uma academia já está utilizando esse nome.</value>
+  </data>
+  <data name="GYM_NOT_FOUND" xml:space="preserve">
+    <value>There is no gym with the specified ID.</value>
   </data>
   <data name="INVALID_CPF" xml:space="preserve">
     <value>Este CPF não é válido, deve seguir o padrão XXX.XXX.XXX-XX</value>

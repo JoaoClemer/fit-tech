@@ -61,6 +61,24 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a An employee is already using this CPF..
+        /// </summary>
+        public static string EMPLOYEE_CPF_IN_USE {
+            get {
+                return ResourceManager.GetString("EMPLOYEE_CPF_IN_USE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a An employee is already using this e-mail..
+        /// </summary>
+        public static string EMPLOYEE_EMAIL_IN_USE {
+            get {
+                return ResourceManager.GetString("EMPLOYEE_EMAIL_IN_USE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The property Address cannot be empty..
         /// </summary>
         public static string EMPTY_ADDRESS {
@@ -210,6 +228,15 @@ namespace FitTech.Exceptions {
         public static string GYM_NAME_IN_USE {
             get {
                 return ResourceManager.GetString("GYM_NAME_IN_USE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Não existe nenhuma academia com o Id informado..
+        /// </summary>
+        public static string GYM_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("GYM_NOT_FOUND", resourceCulture);
             }
         }
         

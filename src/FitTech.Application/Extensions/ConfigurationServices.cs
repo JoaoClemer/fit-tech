@@ -1,4 +1,5 @@
-﻿using FitTech.Application.UseCases.Gym.Create;
+﻿using FitTech.Application.UseCases.Employee.Create;
+using FitTech.Application.UseCases.Gym.Create;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,8 @@ namespace FitTech.Application.Extensions
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<ICreateGymUseCase, CreateGymUseCase>();
+            services.AddScoped<ICreateGymUseCase, CreateGymUseCase>()
+                .AddScoped<ICreateEmployeeUseCase, CreateEmployeeUseCase>();
         }
     }
 }
