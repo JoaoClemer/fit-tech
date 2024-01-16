@@ -11,11 +11,11 @@ namespace FitTech.Infrastructure.Context.Mappings
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Street)
-                .HasMaxLength(20)
+                .HasMaxLength(100)
                 .IsRequired();
 
             builder.Property(x => x.PostalCode)
-                .HasMaxLength(20)
+                .HasMaxLength(9)
                 .IsRequired();
 
             builder.Property(x => x.State)

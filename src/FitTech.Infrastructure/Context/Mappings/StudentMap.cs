@@ -11,7 +11,6 @@ namespace FitTech.Infrastructure.Context.Mappings
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Password)
-                .HasMaxLength(50)
                 .IsRequired();
 
             builder.Property(x => x.EmailAddress)
