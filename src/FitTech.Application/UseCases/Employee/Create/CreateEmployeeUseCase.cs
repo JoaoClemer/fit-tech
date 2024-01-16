@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FitTech.Application.Services.CPFValidator;
 using FitTech.Application.Services.Cryptography;
 using FitTech.Application.Services.Token;
 using FitTech.Comunication.Requests.Employee;
@@ -86,6 +87,14 @@ namespace FitTech.Application.UseCases.Employee.Create
             if (cpfInUse != null)
             {
                 result.Errors.Add(new FluentValidation.Results.ValidationFailure("Cpf", ResourceErrorMessages.EMPLOYEE_CPF_IN_USE));
+            }
+
+            var CPFValidator = new CPFValidator();
+
+            var cpfIsValid = CPFValidator.ValidateCPF(request.Cpf);
+            if(!cpfIsValid)
+            {
+                result.Errors.Add(new FluentValidation.Results.ValidationFailure("Cpf", ResourceErrorMessages.INVALID_CPF));
             }
 
             if(!result.IsValid)

@@ -178,7 +178,7 @@
     <value>There is no gym with the specified ID.</value>
   </data>
   <data name="INVALID_CPF" xml:space="preserve">
-    <value>Este CPF não é válido, deve seguir o padrão XXX.XXX.XXX-XX</value>
+    <value>Este CPF não é válido, certifique-se que foi digitado corretamente, deve seguir o padrão XXX.XXX.XXX-XX</value>
   </data>
   <data name="INVALID_EMAIL" xml:space="preserve">
     <value>Esse e-mail não é válido.</value>

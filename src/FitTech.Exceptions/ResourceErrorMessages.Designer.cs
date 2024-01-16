@@ -241,7 +241,7 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a This CPF is not valid, it must follow the pattern XXX.XXX.XXX-XX.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a This CPF is not valid, make sure it has been entered correctly, it must follow the pattern XXX.XXX.XXX-XX.
         /// </summary>
         public static string INVALID_CPF {
             get {

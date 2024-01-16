@@ -178,7 +178,7 @@
     <value>Não existe nenhuma academia com o Id informado.</value>
   </data>
   <data name="INVALID_CPF" xml:space="preserve">
-    <value>This CPF is not valid, it must follow the pattern XXX.XXX.XXX-XX</value>
+    <value>This CPF is not valid, make sure it has been entered correctly, it must follow the pattern XXX.XXX.XXX-XX</value>
   </data>
   <data name="INVALID_EMAIL" xml:space="preserve">
     <value>This e-mail is not valid.</value>
