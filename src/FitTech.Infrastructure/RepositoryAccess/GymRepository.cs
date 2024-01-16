@@ -28,8 +28,7 @@ namespace FitTech.Infrastructure.RepositoryAccess
 
         public async Task<Gym?> GetGymById(int id)
         {
-            return await _context.Gyms.
-                AsNoTracking().FirstOrDefaultAsync(g => g.Id.Equals(id));
+            return await _context.Gyms.FirstOrDefaultAsync(g => g.Id.Equals(id));
         }
 
         public async Task<Gym?> GetGymByName(string name)
