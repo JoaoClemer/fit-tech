@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FitTech.Application.Services.Cryptography;
+using FitTech.Application.Services.Token;
 using FitTech.Comunication.Requests.Employee;
 using FitTech.Comunication.Responses.Employee;
 using FitTech.Domain.Repositories;
@@ -18,6 +19,7 @@ namespace FitTech.Application.UseCases.Employee.Create
         private readonly IUnitOfWork _unitOfwork;
         private readonly IGymReadOnlyRepository _gymReadOnlyRepository;
         private readonly PasswordEncryptor _passwordEncryptor;
+        private readonly TokenController _tokenController;
 
         public CreateEmployeeUseCase(
             IEmployeeWriteOnlyRepository writeOnlyRepository, 
@@ -25,7 +27,8 @@ namespace FitTech.Application.UseCases.Employee.Create
             IMapper mapper, 
             IUnitOfWork unitOfwork,
             IGymReadOnlyRepository gymReadOnlyRepository,
-            PasswordEncryptor passwordEncryptor)
+            PasswordEncryptor passwordEncryptor,
+            TokenController tokenController)
         {
             _writeOnlyRepository = writeOnlyRepository;
             _readOnlyRepository = readOnlyRepository;
@@ -33,6 +36,7 @@ namespace FitTech.Application.UseCases.Employee.Create
             _unitOfwork = unitOfwork;
             _gymReadOnlyRepository = gymReadOnlyRepository;
             _passwordEncryptor = passwordEncryptor;
+            _tokenController = tokenController;
             
         }
         public async Task<ResponseCreateEmployeeDTO> Execute(RequestCreateEmployeeDTO request)
@@ -49,11 +53,13 @@ namespace FitTech.Application.UseCases.Employee.Create
 
             await _unitOfwork.Commit();
 
+            var token = _tokenController.GenerateToken(entity.EmailAddress);
+
             return new ResponseCreateEmployeeDTO
             {
                 EmailAddress = entity.EmailAddress,
                 GymName = entity.Gym.Name,
-                Token = ""
+                Token = token
             };
 
         }
