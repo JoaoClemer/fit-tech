@@ -14,7 +14,6 @@ namespace FitTech.Infrastructure.Context.Mappings
                 .IsRequired();
 
             builder.Property(x => x.Password)
-                .HasMaxLength(50)
                 .IsRequired();
 
             builder.Property(x => x.EmailAddress)
@@ -22,7 +21,7 @@ namespace FitTech.Infrastructure.Context.Mappings
                 .IsRequired();
 
             builder.Property(x => x.Cpf)
-                .HasMaxLength(11)
+                .HasMaxLength(14)
                 .IsRequired();
 
             builder.Property(x => x.EmployeeType)

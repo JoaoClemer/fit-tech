@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EMPLOYEE_CPF_IN_USE" xml:space="preserve">
+    <value>Um funcionário já está utilizando esse CPF.</value>
+  </data>
+  <data name="EMPLOYEE_EMAIL_IN_USE" xml:space="preserve">
+    <value>Um funcionário já está utilizando esse e-mail.</value>
+  </data>
   <data name="EMPTY_ADDRESS" xml:space="preserve">
     <value>A propriedade Address não pode estar vazia.</value>
   </data>
@@ -126,8 +132,17 @@
   <data name="EMPTY_COUNTRY" xml:space="preserve">
     <value>A propriedade Country não pode estar vazia.</value>
   </data>
+  <data name="EMPTY_CPF" xml:space="preserve">
+    <value>A propriedade Cpf não pode estar vazia.</value>
+  </data>
   <data name="EMPTY_EMAIL" xml:space="preserve">
     <value>A propriedade EmailAddress não pode estar vazia.</value>
+  </data>
+  <data name="EMPTY_EMPLOYEE_TYPE" xml:space="preserve">
+    <value>A propriedade EmployeeType não pode estar vazia.</value>
+  </data>
+  <data name="EMPTY_GYM_ID" xml:space="preserve">
+    <value>A propriedade GymId não pode estar vazia.</value>
   </data>
   <data name="EMPTY_NAME" xml:space="preserve">
     <value>A propriedade Name não pode estar vazia.</value>
@@ -135,11 +150,17 @@
   <data name="EMPTY_NUMBER" xml:space="preserve">
     <value>A propriedade Number não pode estar vazia.</value>
   </data>
+  <data name="EMPTY_PASSWORD" xml:space="preserve">
+    <value>A propriedade Password não pode estar vazia.</value>
+  </data>
   <data name="EMPTY_PHONE_NUMBER" xml:space="preserve">
     <value>A propriedade PhoneNumber não pode estar vazia.</value>
   </data>
   <data name="EMPTY_POSTAL_CODE" xml:space="preserve">
     <value>A propriedade PostalCode não pode estar vazia.</value>
+  </data>
+  <data name="EMPTY_SALARY" xml:space="preserve">
+    <value>A propriedade Salary não pode estar vazia.</value>
   </data>
   <data name="EMPTY_STATE" xml:space="preserve">
     <value>A propriedade State não pode estar vazia.</value>
@@ -152,6 +173,12 @@
   </data>
   <data name="GYM_NAME_IN_USE" xml:space="preserve">
     <value>Uma academia já está utilizando esse nome.</value>
+  </data>
+  <data name="GYM_NOT_FOUND" xml:space="preserve">
+    <value>There is no gym with the specified ID.</value>
+  </data>
+  <data name="INVALID_CPF" xml:space="preserve">
+    <value>Este CPF não é válido, certifique-se que foi digitado corretamente, deve seguir o padrão XXX.XXX.XXX-XX</value>
   </data>
   <data name="INVALID_EMAIL" xml:space="preserve">
     <value>Esse e-mail não é válido.</value>

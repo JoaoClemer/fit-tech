@@ -1,5 +1,5 @@
 ﻿using FitTech.Comunication.Requests.Gym;
-using FitTech.Comunication.Responses;
+using FitTech.Comunication.Responses.Gym;
 using System;
 using System.Collections.Generic;
 using System.Linq;

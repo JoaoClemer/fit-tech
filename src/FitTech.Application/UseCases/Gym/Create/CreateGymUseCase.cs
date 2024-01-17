@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FitTech.Comunication.Requests.Gym;
 using FitTech.Comunication.Responses;
+using FitTech.Comunication.Responses.Gym;
 using FitTech.Domain.Repositories;
 using FitTech.Domain.Repositories.Gym;
 using FitTech.Exceptions;

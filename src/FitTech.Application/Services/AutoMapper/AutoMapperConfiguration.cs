@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FitTech.Comunication.Requests.Address;
+using FitTech.Comunication.Requests.Employee;
 using FitTech.Comunication.Requests.Gym;
 
 namespace FitTech.Application.Services.AutoMapper
@@ -11,6 +12,9 @@ namespace FitTech.Application.Services.AutoMapper
             CreateMap<RequestCreateGymDTO, Domain.Entities.Gym>();
 
             CreateMap<RequestRegisterAddressDTO, Domain.Entities.Address>();
+
+            CreateMap<RequestCreateEmployeeDTO, Domain.Entities.Employee>()
+                .ForMember(entity => entity.Gym, config => config.Ignore());
         }
     }
 }

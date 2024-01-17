@@ -1,4 +1,5 @@
 ﻿using FitTech.Domain.Repositories;
+using FitTech.Domain.Repositories.Employee;
 using FitTech.Domain.Repositories.Gym;
 using FitTech.Infrastructure.Context;
 using FitTech.Infrastructure.RepositoryAccess;
@@ -37,7 +38,9 @@ namespace FitTech.Infrastructure.Extensions
         private static void AddRepositories(this IServiceCollection service)
         {
             service.AddScoped<IGymReadOnlyRepository,GymRepository>()
-                .AddScoped<IGymWriteOnlyRepository,GymRepository>();
+                .AddScoped<IGymWriteOnlyRepository,GymRepository>()
+                .AddScoped<IEmployeeReadOnlyRepository, EmployeeRepository>()
+                .AddScoped<IEmployeeWriteOnlyRepository, EmployeeRepository>();
         }
 
         private static void AddUnitOfWork(this IServiceCollection service)
