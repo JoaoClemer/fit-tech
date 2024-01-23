@@ -1,8 +1,9 @@
-﻿using Bogus.DataSets;
+﻿using Bogus;
+using Bogus.DataSets;
 using FitTech.Domain.Repositories.Gym;
 using Moq;
 
-namespace FitTech.Tests.Utils.Repositories
+namespace FitTech.Tests.Utils.Repositories.Gym
 {
     public class GymReadOnlyRepositoryBuilder
     {
@@ -33,8 +34,20 @@ namespace FitTech.Tests.Utils.Repositories
 
         public GymReadOnlyRepositoryBuilder GetGymByName(string name)
         {
-            if(!string.IsNullOrEmpty(name))
+            if (!string.IsNullOrEmpty(name))
                 _repository.Setup(i => i.GetGymByName(name)).ReturnsAsync(new Domain.Entities.Gym());
+
+            return this;
+        }
+
+        public GymReadOnlyRepositoryBuilder GetGymById(int id)
+        {
+            if (id > 0)
+                _repository.Setup(i => i.GetGymById(id)).ReturnsAsync(new Domain.Entities.Gym
+                {
+                    Id = id,
+                    Name = "Gym"
+                });
 
             return this;
         }

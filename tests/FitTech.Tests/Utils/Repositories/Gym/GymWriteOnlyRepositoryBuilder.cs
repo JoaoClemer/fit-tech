@@ -1,7 +1,7 @@
 ﻿using FitTech.Domain.Repositories.Gym;
 using Moq;
 
-namespace FitTech.Tests.Utils.Repositories
+namespace FitTech.Tests.Utils.Repositories.Gym
 {
     public class GymWriteOnlyRepositoryBuilder
     {

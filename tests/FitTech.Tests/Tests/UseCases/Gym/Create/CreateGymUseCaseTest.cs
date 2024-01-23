@@ -2,7 +2,8 @@
 using FitTech.Exceptions;
 using FitTech.Exceptions.ExceptionsBase;
 using FitTech.Tests.Utils.Mapper;
-using FitTech.Tests.Utils.Repositories;
+using FitTech.Tests.Utils.Repositories.Gym;
+using FitTech.Tests.Utils.Repositories.Services;
 using FitTech.Tests.Utils.Requests;
 using FluentAssertions;
 using Xunit;
