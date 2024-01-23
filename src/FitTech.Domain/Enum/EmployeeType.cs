@@ -2,7 +2,7 @@
 {
     public enum EmployeeType
     {
-        Teatcher = 0,
-        Administrator = 1
+        Teacher = 1,
+        Administrator = 2
     }
 }

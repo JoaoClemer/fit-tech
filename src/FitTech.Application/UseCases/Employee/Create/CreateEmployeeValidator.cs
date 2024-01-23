@@ -26,6 +26,8 @@ namespace FitTech.Application.UseCases.Employee.Create
 
             RuleFor(r => r.GymId).NotEmpty().WithMessage(ResourceErrorMessages.EMPTY_GYM_ID);
 
+            RuleFor(r => r.PhoneNumber).NotEmpty().WithMessage(ResourceErrorMessages.EMPTY_PHONE_NUMBER);
+
             RuleFor(r => r.Address).SetValidator(new RegisterAddressValidator());
 
             When(r => !string.IsNullOrWhiteSpace(r.EmailAddress), () =>
@@ -59,7 +61,6 @@ namespace FitTech.Application.UseCases.Employee.Create
 
                 });
 
-                RuleFor( r=> r.Cpf.Length).Equal(14).WithMessage(ResourceErrorMessages.INVALID_CPF);
             });
 
             When(r => !string.IsNullOrWhiteSpace(r.Password), () =>
