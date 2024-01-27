@@ -1,4 +1,5 @@
 ﻿using FitTech.Infrastructure.Context;
+using FitTech.Tests.Utils.SeedDataFactory;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,7 @@ namespace FitTech.Tests.Tests.Api
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
             builder.UseEnvironment("Test")
-                .ConfigureServices(services =>
+                .ConfigureServices(async services =>
                 {
                     var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(FitTechContext));
                     if(descriptor != null)
@@ -32,7 +33,16 @@ namespace FitTech.Tests.Tests.Api
                     var database = scope.ServiceProvider.GetRequiredService<FitTechContext>();
 
                     database.Database.EnsureDeleted();
+
+                    await SeedDataAsync(database);
                 });
+        }
+
+        private async Task SeedDataAsync(FitTechContext context)
+        {
+            await context.Gyms.AddAsync(GymSeedDataFactory.BuildSimpleGym());
+
+            context.SaveChanges();
         }
     }
 }
