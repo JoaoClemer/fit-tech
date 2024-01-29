@@ -295,6 +295,24 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A student is already using this CPF..
+        /// </summary>
+        public static string STUDENT_CPF_IN_USE {
+            get {
+                return ResourceManager.GetString("STUDENT_CPF_IN_USE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A student is already using this e-mail..
+        /// </summary>
+        public static string STUDENT_EMAIL_IN_USE {
+            get {
+                return ResourceManager.GetString("STUDENT_EMAIL_IN_USE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Unknow error..
         /// </summary>
         public static string UNKNOW_ERROR {
