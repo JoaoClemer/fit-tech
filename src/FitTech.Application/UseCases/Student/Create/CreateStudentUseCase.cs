@@ -9,6 +9,8 @@ using AutoMapper;
 using FitTech.Application.Services.Cryptography;
 using FitTech.Domain.Repositories;
 using FitTech.Application.Services.Token;
+using FitTech.Domain.Enum;
+using FitTech.Domain.Entities;
 
 namespace FitTech.Application.UseCases.Student.Create
 {
@@ -43,12 +45,22 @@ namespace FitTech.Application.UseCases.Student.Create
         public async Task<ResponseCreateStudentDTO> Execute(RequestCreateStudentDTO request)
         {
             await Validate(request);
-
+            
             var entity = _mapper.Map<Domain.Entities.Student>(request);
             var gymEntity = await _gymReadOnlyRepository.GetGymById(request.GymId);
 
+            entity.RegistrationNumber = await CreateUniqueRegisterNumber();
             entity.Gym = gymEntity;
             entity.Password = _passwordEncryptor.Encrypt(request.Password);
+
+            entity.Plan = new Plan
+            {
+                ExpirationDate = DateTime.UtcNow,
+                IsActive = false,
+                Name = PlanType.NoPlan.ToString(),
+                PlanType = PlanType.NoPlan,
+                Price = 0
+            };
 
             await _writeOnlyRepository.CreateStudent(entity);
 
@@ -101,6 +113,25 @@ namespace FitTech.Application.UseCases.Student.Create
                 var errorMessages = result.Errors.Select(error => error.ErrorMessage).ToList();
                 throw new ValidationErrorsException(errorMessages);
             }
+        }
+
+        private async Task<int> CreateUniqueRegisterNumber()
+        {
+            var registerNumber = GenerateUniqueRegisterNumber();
+
+            var registerNumberIsUnique = !await _readOnlyRepository.IsRegisterNumberUnique(registerNumber);
+
+            while (!registerNumberIsUnique)
+                registerNumber = GenerateUniqueRegisterNumber();
+
+            return registerNumber;
+        }
+
+        private int GenerateUniqueRegisterNumber()
+        {
+            var random = new Random();
+
+            return random.Next(1, 999999999);
         }
     }
 }
