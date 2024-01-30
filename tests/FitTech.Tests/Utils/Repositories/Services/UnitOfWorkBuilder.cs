@@ -1,8 +1,7 @@
 ﻿using FitTech.Domain.Repositories;
-using FitTech.Domain.Repositories.Gym;
 using Moq;
 
-namespace FitTech.Tests.Utils.Repositories
+namespace FitTech.Tests.Utils.Repositories.Services
 {
     public class UnitOfWorkBuilder
     {

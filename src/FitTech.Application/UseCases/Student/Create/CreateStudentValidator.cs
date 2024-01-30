@@ -1,24 +1,20 @@
 ﻿using FitTech.Application.UseCases.Address;
-using FitTech.Comunication.Requests.Employee;
+using FitTech.Comunication.Requests.Student;
 using FitTech.Exceptions;
 using FluentValidation;
 using System.Text.RegularExpressions;
 
-namespace FitTech.Application.UseCases.Employee.Create
+namespace FitTech.Application.UseCases.Student.Create
 {
-    public class CreateEmployeeValidator : AbstractValidator<RequestCreateEmployeeDTO>
+    public class CreateStudentValidator : AbstractValidator<RequestCreateStudentDTO>
     {
-        public CreateEmployeeValidator()
+        public CreateStudentValidator()
         {
             RuleFor(r => r.Name).NotEmpty().WithMessage(ResourceErrorMessages.EMPTY_NAME);
 
             RuleFor(r => r.Cpf).NotEmpty().WithMessage(ResourceErrorMessages.EMPTY_CPF);
 
             RuleFor(r => r.EmailAddress).NotEmpty().WithMessage(ResourceErrorMessages.EMPTY_EMAIL);
-
-            RuleFor(r => r.Salary).NotEmpty().WithMessage(ResourceErrorMessages.EMPTY_SALARY);
-
-            RuleFor(r => r.EmployeeType).NotEmpty().WithMessage(ResourceErrorMessages.EMPTY_EMPLOYEE_TYPE);
 
             RuleFor(r => r.Password).NotEmpty().WithMessage(ResourceErrorMessages.EMPTY_PASSWORD);
 
@@ -54,7 +50,7 @@ namespace FitTech.Application.UseCases.Employee.Create
                 {
                     var cpfPattern = "^(\\d{3}.\\d{3}.\\d{3}-\\d{2})|(\\d{11})$ ou ^\\d{3}\\x2E\\d{3}\\x2E\\d{3}\\x2D\\d{2}$";
                     var isMatch = Regex.IsMatch(cpf, cpfPattern);
-                    if(!isMatch)
+                    if (!isMatch)
                     {
                         context.AddFailure(new FluentValidation.Results.ValidationFailure(nameof(cpf), ResourceErrorMessages.INVALID_CPF));
                     }
@@ -67,7 +63,6 @@ namespace FitTech.Application.UseCases.Employee.Create
             {
                 RuleFor(r => r.Password.Length).GreaterThanOrEqualTo(6).WithMessage(ResourceErrorMessages.INVALID_PASSWORD);
             });
-
         }
     }
 }

@@ -195,6 +195,12 @@
   <data name="INVALID_STATE" xml:space="preserve">
     <value>Na propriedade Estado deve ser informada apenas a sigla do estado, exemplo: SP.</value>
   </data>
+  <data name="STUDENT_CPF_IN_USE" xml:space="preserve">
+    <value>Um aluno já está utilizando esse CPF.</value>
+  </data>
+  <data name="STUDENT_EMAIL_IN_USE" xml:space="preserve">
+    <value>Um aluno já está utilizando esse e-mail.</value>
+  </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Erro desconhecido.</value>
   </data>

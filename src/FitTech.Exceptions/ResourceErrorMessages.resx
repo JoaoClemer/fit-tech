@@ -195,6 +195,12 @@
   <data name="INVALID_STATE" xml:space="preserve">
     <value>In the State property, only the state acronym must be entered. Exemple: SP.</value>
   </data>
+  <data name="STUDENT_CPF_IN_USE" xml:space="preserve">
+    <value>A student is already using this CPF.</value>
+  </data>
+  <data name="STUDENT_EMAIL_IN_USE" xml:space="preserve">
+    <value>A student is already using this e-mail.</value>
+  </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Unknow error.</value>
   </data>

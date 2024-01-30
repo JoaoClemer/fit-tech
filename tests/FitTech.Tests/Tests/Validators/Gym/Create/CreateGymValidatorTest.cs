@@ -1,9 +1,8 @@
 ﻿using FitTech.Application.UseCases.Gym.Create;
-using FitTech.Comunication.Requests.Gym;
-using Xunit;
-using FluentAssertions;
 using FitTech.Exceptions;
 using FitTech.Tests.Utils.Requests;
+using FluentAssertions;
+using Xunit;
 
 namespace FitTech.Tests.Tests.Validators.Gym.Create
 {
