@@ -9,7 +9,7 @@ using FitTech.Tests.Utils.Requests;
 using FluentAssertions;
 using Xunit;
 
-namespace FitTech.Tests.Tests.UseCases.Student
+namespace FitTech.Tests.Tests.UseCases.Student.Create
 {
     public class CreateStudentUseCaseTest
     {
