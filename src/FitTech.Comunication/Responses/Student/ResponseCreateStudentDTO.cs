@@ -1,4 +1,4 @@
-﻿namespace FitTech.Comunication.Responses
+﻿namespace FitTech.Comunication.Responses.Student
 {
     public class ResponseCreateStudentDTO
     {

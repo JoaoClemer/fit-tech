@@ -168,6 +168,9 @@
   <data name="EMPTY_STREET" xml:space="preserve">
     <value>The property Street cannot be empty.</value>
   </data>
+  <data name="EMPTY_USER_TYPE" xml:space="preserve">
+    <value>The property UserType cannot be empty.</value>
+  </data>
   <data name="GYM_EMAIL_IN_USE" xml:space="preserve">
     <value>A gym is already using this e-mail.</value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="INVALID_EMAIL" xml:space="preserve">
     <value>This e-mail is not valid.</value>
+  </data>
+  <data name="INVALID_LOGIN" xml:space="preserve">
+    <value>The email and/or password entered are incorrect.</value>
   </data>
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>This password is not valid, it must be at least 6 characters long.</value>

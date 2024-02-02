@@ -168,6 +168,9 @@
   <data name="EMPTY_STREET" xml:space="preserve">
     <value>A propriedade Street não pode estar vazia.</value>
   </data>
+  <data name="EMPTY_USER_TYPE" xml:space="preserve">
+    <value>A propriedade UserType não pode estar vazia.</value>
+  </data>
   <data name="GYM_EMAIL_IN_USE" xml:space="preserve">
     <value>Uma academia já está utilizando esse e-mail.</value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="INVALID_EMAIL" xml:space="preserve">
     <value>Esse e-mail não é válido.</value>
+  </data>
+  <data name="INVALID_LOGIN" xml:space="preserve">
+    <value>O e-mail e/ou senha informados estão incorretos.</value>
   </data>
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>Esta senha não é válida, deve ter pelo menos 6 caracteres.</value>

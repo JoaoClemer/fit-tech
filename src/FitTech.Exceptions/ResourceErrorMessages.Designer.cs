@@ -214,6 +214,15 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property UserType cannot be empty..
+        /// </summary>
+        public static string EMPTY_USER_TYPE {
+            get {
+                return ResourceManager.GetString("EMPTY_USER_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a A gym is already using this e-mail..
         /// </summary>
         public static string GYM_EMAIL_IN_USE {
@@ -255,6 +264,15 @@ namespace FitTech.Exceptions {
         public static string INVALID_EMAIL {
             get {
                 return ResourceManager.GetString("INVALID_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The email and/or password entered are incorrect..
+        /// </summary>
+        public static string INVALID_LOGIN {
+            get {
+                return ResourceManager.GetString("INVALID_LOGIN", resourceCulture);
             }
         }
         
