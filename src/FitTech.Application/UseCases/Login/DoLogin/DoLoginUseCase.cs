@@ -39,7 +39,7 @@ namespace FitTech.Application.UseCases.Login.DoLogin
             {
                 var employeeUser = await _employeeReadOnlyRepository.Login(request.EmailAddress, encryptPassword);
 
-                if(employeeUser != null)
+                if(employeeUser == null)
                 {
                     throw new InvalidLoginException();
                 }
@@ -55,7 +55,7 @@ namespace FitTech.Application.UseCases.Login.DoLogin
 
             var studentUser = await _studentReadOnlyRepository.Login(request.EmailAddress, encryptPassword);
 
-            if(studentUser != null)
+            if(studentUser == null)
             {
                 throw new InvalidLoginException();
             }
