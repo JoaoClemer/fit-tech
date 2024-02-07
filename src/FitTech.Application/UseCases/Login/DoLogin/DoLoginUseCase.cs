@@ -1,5 +1,6 @@
 ﻿using FitTech.Application.Services.Cryptography;
 using FitTech.Application.Services.Token;
+using FitTech.Comunication.Enum;
 using FitTech.Comunication.Requests.Login;
 using FitTech.Comunication.Responses.Login;
 using FitTech.Domain.Entities;
@@ -35,7 +36,7 @@ namespace FitTech.Application.UseCases.Login.DoLogin
 
             var encryptPassword = _passwordEncryptor.Encrypt(request.Password);
             
-            if(request.UserType.Equals(UserType.Employee))
+            if(request.UserType.Equals(UserTypeDTO.Employee))
             {
                 var employeeUser = await _employeeReadOnlyRepository.Login(request.EmailAddress, encryptPassword);
 

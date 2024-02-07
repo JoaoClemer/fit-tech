@@ -54,6 +54,18 @@ namespace FitTech.Tests.Utils.Repositories.Student
             return this;
         }
 
+        public StudentReadOnlyRepositoryBuilder Login(string emailAddress, string password)
+        {
+            if (!string.IsNullOrEmpty(emailAddress) && !string.IsNullOrEmpty(password))
+                _repository.Setup(i => i.Login(emailAddress, password)).ReturnsAsync(new Domain.Entities.Student
+                {
+                    Name = "UseCaseTest",
+                    EmailAddress = "usecase@test.com"
+                });
+
+            return this;
+        }
+
         public IStudentReadOnlyRepository Build()
         {
             return _repository.Object;
