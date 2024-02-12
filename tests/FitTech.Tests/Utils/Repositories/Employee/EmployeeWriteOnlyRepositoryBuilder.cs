@@ -1,6 +1,4 @@
 ﻿using FitTech.Domain.Repositories.Employee;
-using FitTech.Domain.Repositories.Gym;
-using FitTech.Tests.Utils.Repositories.Gym;
 using Moq;
 
 namespace FitTech.Tests.Utils.Repositories.Employee

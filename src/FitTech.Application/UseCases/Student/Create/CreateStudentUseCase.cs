@@ -1,5 +1,4 @@
 ﻿using FitTech.Comunication.Requests.Student;
-using FitTech.Comunication.Responses;
 using FitTech.Domain.Repositories.Gym;
 using FitTech.Domain.Repositories.Student;
 using FitTech.Exceptions.ExceptionsBase;
@@ -11,6 +10,7 @@ using FitTech.Domain.Repositories;
 using FitTech.Application.Services.Token;
 using FitTech.Domain.Enum;
 using FitTech.Domain.Entities;
+using FitTech.Comunication.Responses.Student;
 
 namespace FitTech.Application.UseCases.Student.Create
 {

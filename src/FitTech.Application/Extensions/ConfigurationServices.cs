@@ -2,6 +2,7 @@
 using FitTech.Application.Services.Token;
 using FitTech.Application.UseCases.Employee.Create;
 using FitTech.Application.UseCases.Gym.Create;
+using FitTech.Application.UseCases.Login.DoLogin;
 using FitTech.Application.UseCases.Student.Create;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,7 +34,8 @@ namespace FitTech.Application.Extensions
         {
             services.AddScoped<ICreateGymUseCase, CreateGymUseCase>()
                .AddScoped<ICreateEmployeeUseCase, CreateEmployeeUseCase>()
-               .AddScoped<ICreateStudentUseCase, CreateStudentUseCase>();
+               .AddScoped<ICreateStudentUseCase, CreateStudentUseCase>()
+               .AddScoped<IDoLoginUseCase, DoLoginUseCase>();
         }
 
     }

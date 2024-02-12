@@ -26,6 +26,9 @@ namespace FitTech.Api.Filters
             if(context.Exception is ValidationErrorsException) 
             {
                 DealWithValidationErrorsException(context);
+            }else if (context.Exception is InvalidLoginException)
+            {
+                DealWithInvalidLoginException(context);
             }
 
         }
@@ -36,6 +39,14 @@ namespace FitTech.Api.Filters
 
             context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
             context.Result = new ObjectResult(new ResponseErrorDTO(validationErrorException.ErrorMessages));
+        }
+
+        private static void DealWithInvalidLoginException(ExceptionContext context)
+        {
+            var invalidLoginexception = context.Exception as InvalidLoginException;
+
+            context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            context.Result = new ObjectResult(new ResponseErrorDTO(invalidLoginexception.Message));
         }
 
         private static void ThrowUnknowError(ExceptionContext context)

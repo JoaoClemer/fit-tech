@@ -1,5 +1,5 @@
 ﻿using FitTech.Comunication.Requests.Student;
-using FitTech.Comunication.Responses;
+using FitTech.Comunication.Responses.Student;
 
 namespace FitTech.Application.UseCases.Student.Create
 {

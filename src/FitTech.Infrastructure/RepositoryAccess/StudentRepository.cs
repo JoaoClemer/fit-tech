@@ -48,7 +48,15 @@ namespace FitTech.Infrastructure.RepositoryAccess
         public async Task<bool> IsRegisterNumberUnique(int registrationNumber)
         {
             return await _context.Students
+                .AsNoTracking()
                 .AnyAsync(s => s.RegistrationNumber.Equals(registrationNumber));
+        }
+
+        public async Task<Student?> Login(string email, string password)
+        {
+            return await _context.Students
+                .AsNoTracking()
+                .FirstOrDefaultAsync(s => s.EmailAddress.Equals(email) && s.Password.Equals(password));
         }
     }
 }

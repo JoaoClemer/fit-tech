@@ -36,5 +36,12 @@ namespace FitTech.Infrastructure.RepositoryAccess
         {
             return await _context.Employees.FirstOrDefaultAsync(e => e.Id.Equals(id));
         }
+
+        public async Task<Employee?> Login(string email, string password)
+        {
+            return await _context.Employees
+                .AsNoTracking()
+                .FirstOrDefaultAsync(e => e.EmailAddress.Equals(email) && e.Password.Equals(password));
+        }
     }
 }
