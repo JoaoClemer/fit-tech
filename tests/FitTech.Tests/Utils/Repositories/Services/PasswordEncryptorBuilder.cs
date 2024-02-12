@@ -6,7 +6,7 @@ namespace FitTech.Tests.Utils.Repositories.Services
     {
         public static PasswordEncryptor Instance()
         {
-            return new PasswordEncryptor("ABCD123");
+            return new PasswordEncryptor("uHPqx4*K&fN!");
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using FitTech.Exceptions;
+using FitTech.Infrastructure.Context;
 using FitTech.Tests.Utils.Requests;
 using FluentAssertions;
+using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
 using Xunit;
 
@@ -11,7 +13,7 @@ namespace FitTech.Tests.Tests.Api.V1.Student.Create
         private const string METODH = "student";
         public CreateStudentApiTest(FitTechWebApplicationFactory<Program> factory) : base(factory)
         {
-            
+            var teste = factory.Services.GetService(typeof(FitTechContext));
         }
 
         [Fact]
