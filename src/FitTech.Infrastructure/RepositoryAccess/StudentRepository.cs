@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FitTech.Infrastructure.RepositoryAccess
 {
-    public class StudentRepository : IStudentReadOnlyRepository, IStudentWriteOnlyRepository
+    public class StudentRepository : IStudentReadOnlyRepository, IStudentWriteOnlyRepository, IStudentUpdateOnlyRepository
     {
         private readonly FitTechContext _context;
 
@@ -57,6 +57,11 @@ namespace FitTech.Infrastructure.RepositoryAccess
             return await _context.Students
                 .AsNoTracking()
                 .FirstOrDefaultAsync(s => s.EmailAddress.Equals(email) && s.Password.Equals(password));
+        }
+
+        public void Update(Student student)
+        {
+            _context.Students.Update(student);
         }
     }
 }
