@@ -4,6 +4,7 @@ using FitTech.Application.Services.Cryptography;
 using FitTech.Application.Services.Token;
 using FitTech.Comunication.Requests.Employee;
 using FitTech.Comunication.Responses.Employee;
+using FitTech.Domain.Enum;
 using FitTech.Domain.Repositories;
 using FitTech.Domain.Repositories.Employee;
 using FitTech.Domain.Repositories.Gym;
@@ -54,7 +55,7 @@ namespace FitTech.Application.UseCases.Employee.Create
 
             await _unitOfwork.Commit();
 
-            var token = _tokenController.GenerateToken(entity.EmailAddress);
+            var token = _tokenController.GenerateToken(entity.EmailAddress, UserType.Employee.ToString());
 
             return new ResponseCreateEmployeeDTO
             {

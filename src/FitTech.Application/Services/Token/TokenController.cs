@@ -7,6 +7,7 @@ namespace FitTech.Application.Services.Token
     public class TokenController
     {
         private const string EMAIL_ALIAS = "eml";
+        private const string USER_TYPE_ALIAS = "ust";
         private readonly int _tokenValidTimeInMinutes;
         private readonly string _securityKey;
 
@@ -16,11 +17,12 @@ namespace FitTech.Application.Services.Token
             _securityKey = securityKey;
         }
 
-        public string GenerateToken(string userEmail)
+        public string GenerateToken(string userEmail, string userType)
         {
             var claims = new List<Claim>
             {
-                new Claim(EMAIL_ALIAS, userEmail)
+                new Claim(EMAIL_ALIAS, userEmail),
+                new Claim(USER_TYPE_ALIAS, userType)
 
             };
 
@@ -54,6 +56,16 @@ namespace FitTech.Application.Services.Token
             var claims = tokenHandler.ValidateToken(token, validationParameters, out _);
 
             return claims;
+        }
+
+        public (string userEmail, string userType) RecoverUser(string token)
+        {
+            var claims = ValidToken(token);
+
+            var email = claims.FindFirst(EMAIL_ALIAS).Value;
+            var type = claims.FindFirst(USER_TYPE_ALIAS).Value;
+
+            return (email, type);
         }
 
         private SymmetricSecurityKey SimetricKey()

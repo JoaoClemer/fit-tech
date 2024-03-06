@@ -183,6 +183,9 @@
   <data name="INVALID_CPF" xml:space="preserve">
     <value>This CPF is not valid, make sure it has been entered correctly, it must follow the pattern XXX.XXX.XXX-XX</value>
   </data>
+  <data name="INVALID_CURRENT_PASSWORD" xml:space="preserve">
+    <value>The current password is invalid.</value>
+  </data>
   <data name="INVALID_EMAIL" xml:space="preserve">
     <value>This e-mail is not valid.</value>
   </data>

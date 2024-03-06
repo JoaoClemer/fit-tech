@@ -259,6 +259,15 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The current password is invalid..
+        /// </summary>
+        public static string INVALID_CURRENT_PASSWORD {
+            get {
+                return ResourceManager.GetString("INVALID_CURRENT_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a This e-mail is not valid..
         /// </summary>
         public static string INVALID_EMAIL {

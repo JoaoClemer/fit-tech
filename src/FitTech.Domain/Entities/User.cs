@@ -1,4 +1,6 @@
-﻿namespace FitTech.Domain.Entities
+﻿using FitTech.Domain.Enum;
+
+namespace FitTech.Domain.Entities
 {
     public abstract class User : BaseEntity
     {
@@ -9,5 +11,7 @@
         public string Password { get; set; }
         public Address Address { get; set; }
         public Gym Gym { get; set; }
+
+        public abstract UserType GetUserType();
     }
 }
