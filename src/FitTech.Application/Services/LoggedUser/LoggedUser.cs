@@ -31,7 +31,7 @@ namespace FitTech.Application.Services.LoggedUser
 
             var user = _tokenController.RecoverUser(token);
 
-            if(user.userType.Equals(UserType.Student))
+            if(user.userType.Equals(UserType.Student.ToString()))
             {
                 var studentUser = await _studentReadOnlyRepository.GetStudentByEmail(user.userEmail);
                 return studentUser;

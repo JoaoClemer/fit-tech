@@ -61,7 +61,7 @@ namespace FitTech.Application.UseCases.Login.DoLogin
                 throw new InvalidLoginException();
             }
 
-            var studentUserToken = _tokenController.GenerateToken(studentUser.EmailAddress, UserType.Employee.ToString());
+            var studentUserToken = _tokenController.GenerateToken(studentUser.EmailAddress, UserType.Student.ToString());
 
             return new ResponseDoLoginDTO
             {

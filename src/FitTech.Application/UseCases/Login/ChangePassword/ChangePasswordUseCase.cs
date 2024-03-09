@@ -43,7 +43,7 @@ namespace FitTech.Application.UseCases.Login.ChangePassword
 
             Valid(request, loggedUser);
 
-            if(loggedUser.GetType().Equals(UserType.Student))
+            if(loggedUser.GetUserType().Equals(UserType.Student))
             {
                 var studentUser = await _studentReadOnlyRepository.GetStudentById(loggedUser.Id);
                 studentUser.Password = _passwordEncryptor.Encrypt(request.NewPassword);
