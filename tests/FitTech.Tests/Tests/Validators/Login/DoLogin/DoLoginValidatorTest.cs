@@ -1,6 +1,4 @@
-﻿using FitTech.Application.UseCases.Gym.Create;
-using FitTech.Application.UseCases.Login.DoLogin;
-using FitTech.Application.UseCases.Student.Create;
+﻿using FitTech.Application.UseCases.Login.DoLogin;
 using FitTech.Exceptions;
 using FitTech.Tests.Utils.Requests;
 using FluentAssertions;
