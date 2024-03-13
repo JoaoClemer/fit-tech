@@ -8,10 +8,10 @@ namespace FitTech.Application.Services.Token
     {
         private const string EMAIL_ALIAS = "eml";
         private const string USER_TYPE_ALIAS = "ust";
-        private readonly int _tokenValidTimeInMinutes;
+        private readonly double _tokenValidTimeInMinutes;
         private readonly string _securityKey;
 
-        public TokenController(int tokenValidTimeInMinutes, string securityKey)
+        public TokenController(double tokenValidTimeInMinutes, string securityKey)
         {
             _tokenValidTimeInMinutes = tokenValidTimeInMinutes;
             _securityKey = securityKey;
