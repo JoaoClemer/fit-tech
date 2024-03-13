@@ -223,6 +223,15 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a This token is expired, please log in again..
+        /// </summary>
+        public static string EXPIRED_TOKEN {
+            get {
+                return ResourceManager.GetString("EXPIRED_TOKEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a A gym is already using this e-mail..
         /// </summary>
         public static string GYM_EMAIL_IN_USE {
@@ -255,6 +264,15 @@ namespace FitTech.Exceptions {
         public static string INVALID_CPF {
             get {
                 return ResourceManager.GetString("INVALID_CPF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The current password is invalid..
+        /// </summary>
+        public static string INVALID_CURRENT_PASSWORD {
+            get {
+                return ResourceManager.GetString("INVALID_CURRENT_PASSWORD", resourceCulture);
             }
         }
         
@@ -336,6 +354,15 @@ namespace FitTech.Exceptions {
         public static string UNKNOW_ERROR {
             get {
                 return ResourceManager.GetString("UNKNOW_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a User without permission for this resource..
+        /// </summary>
+        public static string USER_WITHOUT_PERMISSION {
+            get {
+                return ResourceManager.GetString("USER_WITHOUT_PERMISSION", resourceCulture);
             }
         }
     }

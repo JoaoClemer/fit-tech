@@ -6,6 +6,11 @@ namespace FitTech.Domain.Entities
     {
         public decimal Salary { get; set; }
         public EmployeeType EmployeeType { get; set; }
+
+        public override UserType GetUserType()
+        {
+            return UserType.Employee;
+        }
     }
 
 }

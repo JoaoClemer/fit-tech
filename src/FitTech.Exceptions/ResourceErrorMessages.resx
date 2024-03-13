@@ -171,6 +171,9 @@
   <data name="EMPTY_USER_TYPE" xml:space="preserve">
     <value>The property UserType cannot be empty.</value>
   </data>
+  <data name="EXPIRED_TOKEN" xml:space="preserve">
+    <value>This token is expired, please log in again.</value>
+  </data>
   <data name="GYM_EMAIL_IN_USE" xml:space="preserve">
     <value>A gym is already using this e-mail.</value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="INVALID_CPF" xml:space="preserve">
     <value>This CPF is not valid, make sure it has been entered correctly, it must follow the pattern XXX.XXX.XXX-XX</value>
+  </data>
+  <data name="INVALID_CURRENT_PASSWORD" xml:space="preserve">
+    <value>The current password is invalid.</value>
   </data>
   <data name="INVALID_EMAIL" xml:space="preserve">
     <value>This e-mail is not valid.</value>
@@ -209,5 +215,8 @@
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Unknow error.</value>
+  </data>
+  <data name="USER_WITHOUT_PERMISSION" xml:space="preserve">
+    <value>User without permission for this resource.</value>
   </data>
 </root>
