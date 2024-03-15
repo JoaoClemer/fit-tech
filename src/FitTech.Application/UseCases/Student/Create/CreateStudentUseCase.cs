@@ -53,15 +53,6 @@ namespace FitTech.Application.UseCases.Student.Create
             entity.Gym = gymEntity;
             entity.Password = _passwordEncryptor.Encrypt(request.Password);
 
-            entity.Plan = new Plan
-            {
-                ExpirationDate = DateTime.UtcNow,
-                IsActive = false,
-                Name = PlanType.NoPlan.ToString(),
-                PlanType = PlanType.NoPlan,
-                Price = 0
-            };
-
             await _writeOnlyRepository.CreateStudent(entity);
 
             await _unitOfWork.Commit();

@@ -14,16 +14,10 @@ namespace FitTech.Infrastructure.Context.Mappings
                 .HasMaxLength(50)
                 .IsRequired();
 
-            builder.Property(x => x.IsActive)
-                .IsRequired();
-
             builder.Property(x => x.PlanType)
                 .IsRequired();
 
             builder.Property(x => x.Price)
-                .IsRequired();
-
-            builder.Property(x => x.ExpirationDate)
                 .IsRequired();
 
             builder.Property(x => x.CreateDate)
