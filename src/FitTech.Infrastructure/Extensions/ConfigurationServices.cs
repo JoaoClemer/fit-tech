@@ -49,7 +49,8 @@ namespace FitTech.Infrastructure.Extensions
                 .AddScoped<IStudentReadOnlyRepository, StudentRepository>()
                 .AddScoped<IStudentWriteOnlyRepository, StudentRepository>()
                 .AddScoped<IStudentUpdateOnlyRepository, StudentRepository>()
-                .AddScoped<IPlanWriteOnlyRepository, PlanRepository>();
+                .AddScoped<IPlanWriteOnlyRepository, PlanRepository>()
+                .AddScoped<IPlanReadOnlyRepository, PlanRepository>();
         }
 
         private static void AddUnitOfWork(this IServiceCollection service)

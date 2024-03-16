@@ -156,8 +156,14 @@
   <data name="EMPTY_PHONE_NUMBER" xml:space="preserve">
     <value>A propriedade PhoneNumber não pode estar vazia.</value>
   </data>
+  <data name="EMPTY_PLAN_TYPE" xml:space="preserve">
+    <value>A propriedade PlanType não pode estar vazia.</value>
+  </data>
   <data name="EMPTY_POSTAL_CODE" xml:space="preserve">
     <value>A propriedade PostalCode não pode estar vazia.</value>
+  </data>
+  <data name="EMPTY_PRICE" xml:space="preserve">
+    <value>A propriedade Price não pode estar vazia.</value>
   </data>
   <data name="EMPTY_SALARY" xml:space="preserve">
     <value>A propriedade Salary não pode estar vazia.</value>
@@ -206,6 +212,9 @@
   </data>
   <data name="INVALID_STATE" xml:space="preserve">
     <value>Na propriedade Estado deve ser informada apenas a sigla do estado, exemplo: SP.</value>
+  </data>
+  <data name="PLAN_NAME_IN_USE" xml:space="preserve">
+    <value>Um plano já está utilizando esse nome.</value>
   </data>
   <data name="STUDENT_CPF_IN_USE" xml:space="preserve">
     <value>Um aluno já está utilizando esse CPF.</value>

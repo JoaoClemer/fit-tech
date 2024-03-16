@@ -156,8 +156,14 @@
   <data name="EMPTY_PHONE_NUMBER" xml:space="preserve">
     <value>The property PhoneNumber cannot be empty.</value>
   </data>
+  <data name="EMPTY_PLAN_TYPE" xml:space="preserve">
+    <value>The property PlanType cannot be empty.</value>
+  </data>
   <data name="EMPTY_POSTAL_CODE" xml:space="preserve">
     <value>The property PostalCode cannot be empty.</value>
+  </data>
+  <data name="EMPTY_PRICE" xml:space="preserve">
+    <value>The property Price cannot be empty.</value>
   </data>
   <data name="EMPTY_SALARY" xml:space="preserve">
     <value>The property Salary cannot be empty.</value>
@@ -206,6 +212,9 @@
   </data>
   <data name="INVALID_STATE" xml:space="preserve">
     <value>In the State property, only the state acronym must be entered. Exemple: SP.</value>
+  </data>
+  <data name="PLAN_NAME_IN_USE" xml:space="preserve">
+    <value>A plan is already using this name.</value>
   </data>
   <data name="STUDENT_CPF_IN_USE" xml:space="preserve">
     <value>A student is already using this CPF.</value>
