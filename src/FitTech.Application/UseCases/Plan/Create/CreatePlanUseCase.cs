@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FitTech.Comunication.Requests.Plan;
+using FitTech.Comunication.Responses.Plan;
 using FitTech.Domain.Repositories;
 using FitTech.Domain.Repositories.Gym;
 using FitTech.Domain.Repositories.Plan;
@@ -30,7 +31,7 @@ namespace FitTech.Application.UseCases.Plan.Create
             _unitOfWork = unitOfWork;
         }
 
-        public async Task Execute(RequestCreatePlanDTO request)
+        public async Task<ResponseCreatePlanDTO> Execute(RequestCreatePlanDTO request)
         {
             await Validate(request);
             var entity = _mapper.Map<Domain.Entities.Plan>(request);
@@ -41,6 +42,13 @@ namespace FitTech.Application.UseCases.Plan.Create
             await _planWriteOnlyRepository.CreatePlan(entity);
 
             await _unitOfWork.Commit();
+
+            return new ResponseCreatePlanDTO
+            {
+                Name = entity.Name,
+                Price = entity.Price,
+                PlanType = entity.PlanType.ToString()
+            };
         }
 
         private async Task Validate(RequestCreatePlanDTO request)

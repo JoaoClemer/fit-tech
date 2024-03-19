@@ -55,7 +55,7 @@ namespace FitTech.Application.UseCases.Employee.Create
 
             await _unitOfwork.Commit();
 
-            var token = _tokenController.GenerateToken(entity.EmailAddress, UserType.Employee.ToString());
+            var token = _tokenController.GenerateToken(entity.EmailAddress, UserType.Employee.ToString(), entity.EmployeeType.ToString());
 
             return new ResponseCreateEmployeeDTO
             {

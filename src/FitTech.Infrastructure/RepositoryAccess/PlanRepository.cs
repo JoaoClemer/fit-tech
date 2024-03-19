@@ -17,9 +17,9 @@ namespace FitTech.Infrastructure.RepositoryAccess
             await _context.Plans.AddAsync(plan);
         }
 
-        public Task<bool> PlanNameIsInUse(string planName, Guid gymId)
+        public Task<bool> PlanNameIsInUse(string planName, int gymId)
         {
-            return _context.Plans.AnyAsync(p => p.Name.Equals(planName, StringComparison.OrdinalIgnoreCase) && p.Gym.Id.Equals(gymId));
+            return _context.Plans.AnyAsync(p => p.Name.ToUpper().Equals(planName.ToUpper()) && p.Gym.Id == gymId );
         }
     }
 }

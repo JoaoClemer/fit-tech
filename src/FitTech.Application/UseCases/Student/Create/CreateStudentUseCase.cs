@@ -57,7 +57,7 @@ namespace FitTech.Application.UseCases.Student.Create
 
             await _unitOfWork.Commit();
 
-            var token = _tokenController.GenerateToken(entity.EmailAddress, UserType.Student.ToString());
+            var token = _tokenController.GenerateToken(entity.EmailAddress, UserType.Student.ToString(), "student");
 
             return new ResponseCreateStudentDTO
             {

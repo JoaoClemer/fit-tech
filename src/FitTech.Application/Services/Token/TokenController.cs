@@ -17,12 +17,13 @@ namespace FitTech.Application.Services.Token
             _securityKey = securityKey;
         }
 
-        public string GenerateToken(string userEmail, string userType)
+        public string GenerateToken(string userEmail, string userType, string userRole)
         {
             var claims = new List<Claim>
             {
                 new Claim(EMAIL_ALIAS, userEmail),
-                new Claim(USER_TYPE_ALIAS, userType)
+                new Claim(USER_TYPE_ALIAS, userType),
+                new Claim(ClaimTypes.Role, userRole)
 
             };
 
