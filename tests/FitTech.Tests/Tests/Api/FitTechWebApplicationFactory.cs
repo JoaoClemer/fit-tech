@@ -11,15 +11,17 @@ namespace FitTech.Tests.Tests.Api
 {
     public class FitTechWebApplicationFactory<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
     {
-       private Student _student = new Student();
-       private Employee _employee = new Employee();
+        private Student _student = new Student();
+        private Employee _employee = new Employee();
+        private Employee _admEmployee = new Employee();
+        private Plan _plan = new Plan();
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
             builder.UseEnvironment("Test")
                 .ConfigureServices(async services =>
                 {
                     var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(FitTechContext));
-                    if(descriptor != null)
+                    if (descriptor != null)
                         services.Remove(descriptor);
 
                     var provider = services.AddEntityFrameworkInMemoryDatabase().BuildServiceProvider();
@@ -44,10 +46,11 @@ namespace FitTech.Tests.Tests.Api
 
         private async Task SeedDataAsync(FitTechContext context)
         {
-           
+
             SeedGyms(context);
             SeedStudents(context);
             SeedEmployees(context);
+            SeedPlans(context);
 
         }
 
@@ -72,18 +75,47 @@ namespace FitTech.Tests.Tests.Api
 
         private async void SeedEmployees(FitTechContext context)
         {
-            var employee = EmployeeSeedDataFactory.BuildSimpleEmployee();
-            _employee.EmailAddress = employee.EmailAddress;
-            _employee.Password = employee.Password;
+            var employees = new List<Employee>();
 
-            employee.Gym = await context.Gyms.FirstAsync();
-            employee.Password = PasswordEncryptorBuilder.Instance().Encrypt(_employee.Password);
-            await context.Employees.AddAsync(employee);
+            var simpleEmployee = EmployeeSeedDataFactory.BuildSimpleEmployee();
+            _employee.EmailAddress = simpleEmployee.EmailAddress;
+            _employee.Password = simpleEmployee.Password;
+
+            employees.Add(simpleEmployee);
+
+            var admEmployee = EmployeeSeedDataFactory.BuildAdministratorEmployee();
+            _admEmployee.EmailAddress = admEmployee.EmailAddress;
+            _admEmployee.Password = admEmployee.Password;
+
+            employees.Add(admEmployee);
+
+            foreach (var employee in employees)
+            {
+                employee.Gym = await context.Gyms.FirstAsync();
+                employee.Password = PasswordEncryptorBuilder.Instance().Encrypt(employee.Password);
+            }
+
+            await context.Employees.AddRangeAsync(employees);
+            await context.SaveChangesAsync();
+        }
+
+        private async void SeedPlans(FitTechContext context)
+        {
+            var plan = PlanSeedDataFactory.BuildPlan();
+            plan.Gym = await context.Gyms.FirstAsync();
+
+            _plan.Name = plan.Name;
+
+            await context.Plans.AddAsync(plan);
             await context.SaveChangesAsync();
         }
 
         public Student GetStudent() { return _student; }
 
         public Employee GetEmployee() { return _employee; }
+
+        public Employee GetAdmEmployee() { return _admEmployee; }
+
+        public Plan GetPlan() { return _plan; }
     }
 }
