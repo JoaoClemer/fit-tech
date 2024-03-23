@@ -120,7 +120,7 @@ namespace FitTech.Tests.Tests.Api.V1.Login.ChangePassword
         [Fact]
         public async Task Valid_Error_ValidToken_With_InvalidUser()
         {
-            var token = TokenControllerBuilder.Instance().GenerateToken("user@fake.com", UserType.Student.ToString());
+            var token = TokenControllerBuilder.Instance().GenerateToken("user@fake.com", UserType.Student.ToString(), "student");
 
             var request = RequestChangePasswordBuilder.Build();
            request.CurrentPassword = _employee.Password;
@@ -133,7 +133,7 @@ namespace FitTech.Tests.Tests.Api.V1.Login.ChangePassword
         [Fact]
         public async Task Valid_Error_ExpiredToken()
         {
-            var token = TokenControllerBuilder.InstanceExpiredToken().GenerateToken(_student.EmailAddress, UserType.Student.ToString());
+            var token = TokenControllerBuilder.InstanceExpiredToken().GenerateToken(_student.EmailAddress, UserType.Student.ToString(), "student");
             Thread.Sleep(1000);
 
             var request = RequestChangePasswordBuilder.Build();

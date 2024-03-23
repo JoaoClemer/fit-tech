@@ -19,8 +19,9 @@ namespace FitTech.Tests.Tests.Api.V1
             ResourceErrorMessages.Culture = CultureInfo.CurrentCulture;
         }
 
-        protected async Task<HttpResponseMessage> PostRequest(string metodh, object body)
+        protected async Task<HttpResponseMessage> PostRequest(string metodh, object body, string token = "")
         {
+            AuthorizeRequest(token);
             var jsonString = JsonConvert.SerializeObject(body);
 
             return await _httpClient.PostAsync(metodh, new StringContent(jsonString, Encoding.UTF8, "application/json"));

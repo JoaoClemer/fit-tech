@@ -178,11 +178,29 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property PlanType cannot be empty..
+        /// </summary>
+        public static string EMPTY_PLAN_TYPE {
+            get {
+                return ResourceManager.GetString("EMPTY_PLAN_TYPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The property PostalCode cannot be empty..
         /// </summary>
         public static string EMPTY_POSTAL_CODE {
             get {
                 return ResourceManager.GetString("EMPTY_POSTAL_CODE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The property Price cannot be empty..
+        /// </summary>
+        public static string EMPTY_PRICE {
+            get {
+                return ResourceManager.GetString("EMPTY_PRICE", resourceCulture);
             }
         }
         
@@ -327,6 +345,15 @@ namespace FitTech.Exceptions {
         public static string INVALID_STATE {
             get {
                 return ResourceManager.GetString("INVALID_STATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A plan is already using this name..
+        /// </summary>
+        public static string PLAN_NAME_IN_USE {
+            get {
+                return ResourceManager.GetString("PLAN_NAME_IN_USE", resourceCulture);
             }
         }
         

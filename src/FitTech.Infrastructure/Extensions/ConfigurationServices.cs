@@ -1,6 +1,7 @@
 ﻿using FitTech.Domain.Repositories;
 using FitTech.Domain.Repositories.Employee;
 using FitTech.Domain.Repositories.Gym;
+using FitTech.Domain.Repositories.Plan;
 using FitTech.Domain.Repositories.Student;
 using FitTech.Infrastructure.Context;
 using FitTech.Infrastructure.RepositoryAccess;
@@ -47,7 +48,9 @@ namespace FitTech.Infrastructure.Extensions
                 .AddScoped<IEmployeeUpdateOnlyRepository, EmployeeRepository>()
                 .AddScoped<IStudentReadOnlyRepository, StudentRepository>()
                 .AddScoped<IStudentWriteOnlyRepository, StudentRepository>()
-                .AddScoped<IStudentUpdateOnlyRepository, StudentRepository>();
+                .AddScoped<IStudentUpdateOnlyRepository, StudentRepository>()
+                .AddScoped<IPlanWriteOnlyRepository, PlanRepository>()
+                .AddScoped<IPlanReadOnlyRepository, PlanRepository>();
         }
 
         private static void AddUnitOfWork(this IServiceCollection service)

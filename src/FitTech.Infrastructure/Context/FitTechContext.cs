@@ -15,6 +15,7 @@ namespace FitTech.Infrastructure.Context
         public DbSet<Traning> Tranings { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
         public DbSet<Plan> Plans { get; set; }
+        public DbSet<StudentPlan> StudentPlans { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,6 +26,7 @@ namespace FitTech.Infrastructure.Context
             modelBuilder.ApplyConfiguration(new PlanMap());
             modelBuilder.ApplyConfiguration(new StudentMap());
             modelBuilder.ApplyConfiguration(new TraningMap());
+            modelBuilder.ApplyConfiguration(new StudentMap());
         }
 
     }

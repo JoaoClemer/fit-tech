@@ -8,5 +8,6 @@
         public Address Address { get; set; }
         public List<Employee> Employees { get; set; } = new List<Employee>();
         public List<Student> Students { get; set; } = new List<Student>();
+        public List<Plan> Plans { get; set; } = new List<Plan>();
     }
 }
