@@ -6,11 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 namespace FitTech.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     public class StudentController : ControllerBase
     {
 
-        [HttpPost]
+        [HttpPost( ApiRoutes.Student.CreateStudent )]
         [ProducesResponseType(typeof(ResponseCreateStudentDTO), StatusCodes.Status201Created)]
         public async Task<IActionResult> CreateStudent(
             [FromServices] ICreateStudentUseCase useCase,
