@@ -8,5 +8,6 @@
         Task<Entities.Student?> GetStudentByRegistrationNumber(int registrationNumber);
         Task<bool> IsRegisterNumberUnique(int registrationNumber);
         Task<Entities.Student?> Login(string email, string password);
+        Task<ICollection<Entities.Student>> GetAllStudentsOfGym(int gymId);
     }
 }
