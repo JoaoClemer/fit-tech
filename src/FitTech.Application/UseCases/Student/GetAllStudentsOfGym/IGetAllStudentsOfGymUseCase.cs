@@ -1,10 +1,11 @@
 ﻿using FitTech.Comunication.Requests.Shared;
+using FitTech.Comunication.Responses.Shared;
 using FitTech.Comunication.Responses.Student;
 
 namespace FitTech.Application.UseCases.Student.GetAllStudentsOfGym
 {
-    public interface IGetAllStudentsOfGym
+    public interface IGetAllStudentsOfGymUseCase
     {
-        Task<ResponseGetAllStudentsOfGymDTO> Execute(RequestFilterDTO filter);
+        Task<ResponseListForTableDTO<ResponseStudentInList>> Execute(RequestFilterDTO filter);
     }
 }
