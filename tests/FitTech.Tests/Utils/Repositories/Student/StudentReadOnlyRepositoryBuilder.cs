@@ -54,6 +54,37 @@ namespace FitTech.Tests.Utils.Repositories.Student
             return this;
         }
 
+        public StudentReadOnlyRepositoryBuilder GetAllStudentsOfGym(int gymId)
+        {
+            if (gymId > 0)
+            {
+                var studentList = new List<Domain.Entities.Student>
+                {
+                    new Domain.Entities.Student
+                    {
+                        Name = "João",
+                        StudentPlan = new Domain.Entities.StudentPlan
+                        {
+                            IsActive = true
+                        }
+                    },
+                    new Domain.Entities.Student
+                    {
+                        Name = "Pedro",
+                        StudentPlan = new Domain.Entities.StudentPlan
+                        {
+                            IsActive = false
+                        }
+                    },
+                };
+
+                _repository.Setup(i => i.GetAllStudentsOfGym(gymId)).ReturnsAsync(studentList);
+
+            }
+
+            return this;
+        }
+
         public StudentReadOnlyRepositoryBuilder Login(string emailAddress, string password)
         {
             if (!string.IsNullOrEmpty(emailAddress) && !string.IsNullOrEmpty(password))

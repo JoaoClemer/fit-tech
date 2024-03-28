@@ -29,7 +29,11 @@ namespace FitTech.Tests.Utils.Repositories.Services
                 {
                     Id = 1,
                     EmailAddress = "student@email.com",
-                    Password = password
+                    Password = password,
+                    Gym = new Domain.Entities.Gym
+                    {
+                        Id = 1
+                    }
                 });
 
             if (student)
@@ -37,7 +41,11 @@ namespace FitTech.Tests.Utils.Repositories.Services
                 {
                     Id = 1,
                     EmailAddress = "employee@email.com",
-                    Password = password
+                    Password = password,
+                    Gym = new Domain.Entities.Gym
+                    {
+                        Id = 1
+                    }
                 });
 
             return this;

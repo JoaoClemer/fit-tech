@@ -3,7 +3,6 @@ using FitTech.Application.Services.LoggedUser;
 using FitTech.Comunication.Requests.Shared;
 using FitTech.Comunication.Responses.Shared;
 using FitTech.Comunication.Responses.Student;
-using FitTech.Domain.Repositories.Employee;
 using FitTech.Domain.Repositories.Student;
 
 namespace FitTech.Application.UseCases.Student.GetAllStudentsOfGym
@@ -13,7 +12,7 @@ namespace FitTech.Application.UseCases.Student.GetAllStudentsOfGym
         private readonly IStudentReadOnlyRepository _studentReadOnlyRepository;
         private readonly ILoggedUser _loggedUser;
         private readonly IMapper _mapper;
-        public GetAllStudentsOfGymUseCase(IStudentReadOnlyRepository studentReadOnlyRepository, ILoggedUser loggedUser, IMapper mapper, IEmployeeReadOnlyRepository employeeReadOnlyRepository)
+        public GetAllStudentsOfGymUseCase(IStudentReadOnlyRepository studentReadOnlyRepository, ILoggedUser loggedUser, IMapper mapper)
         {
             _studentReadOnlyRepository = studentReadOnlyRepository;
             _loggedUser = loggedUser;
