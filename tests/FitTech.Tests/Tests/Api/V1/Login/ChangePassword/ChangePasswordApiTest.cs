@@ -1,4 +1,5 @@
-﻿using FitTech.Comunication.Requests.Login;
+﻿using FitTech.Api;
+using FitTech.Comunication.Requests.Login;
 using FitTech.Domain.Entities;
 using FitTech.Domain.Enum;
 using FitTech.Exceptions;
@@ -12,7 +13,6 @@ namespace FitTech.Tests.Tests.Api.V1.Login.ChangePassword
 {
     public class ChangePasswordApiTest : ControllerBase
     {
-        private const string METODH = "login/change-password";
         private Domain.Entities.Student _student;
         private Domain.Entities.Employee _employee;
 
@@ -33,7 +33,7 @@ namespace FitTech.Tests.Tests.Api.V1.Login.ChangePassword
               NewPassword = "newStudentPassWord123"
             };
 
-            var response = await PutRequest(METODH, request, token);
+            var response = await PutRequest(ApiRoutes.Login.ChangePassword, request, token);
             response.StatusCode.Should().Be(System.Net.HttpStatusCode.NoContent);
 
         }
@@ -49,7 +49,7 @@ namespace FitTech.Tests.Tests.Api.V1.Login.ChangePassword
                 NewPassword = "newEmployeePassWord123"
             };
 
-            var response = await PutRequest(METODH, request, token);
+            var response = await PutRequest(ApiRoutes.Login.ChangePassword, request, token);
             response.StatusCode.Should().Be(System.Net.HttpStatusCode.NoContent);
 
         }
@@ -65,7 +65,7 @@ namespace FitTech.Tests.Tests.Api.V1.Login.ChangePassword
                 NewPassword = "newStudentPassWord123"
             };
 
-            var response = await PutRequest(METODH, request, token);
+            var response = await PutRequest(ApiRoutes.Login.ChangePassword, request, token);
 
             await using var bodyResponse = await response.Content.ReadAsStreamAsync();
 
@@ -90,7 +90,7 @@ namespace FitTech.Tests.Tests.Api.V1.Login.ChangePassword
                 NewPassword = "newEmployeePassWord123"
             };
 
-            var response = await PutRequest(METODH, request, token);
+            var response = await PutRequest(ApiRoutes.Login.ChangePassword, request, token);
 
             await using var bodyResponse = await response.Content.ReadAsStreamAsync();
 
@@ -112,7 +112,7 @@ namespace FitTech.Tests.Tests.Api.V1.Login.ChangePassword
             var request = RequestChangePasswordBuilder.Build();
             request.CurrentPassword = _student.Password;
 
-            var response = await PutRequest(METODH, request, token);
+            var response = await PutRequest(ApiRoutes.Login.ChangePassword, request, token);
 
             response.StatusCode.Should().Be(System.Net.HttpStatusCode.Unauthorized);
         }
@@ -125,7 +125,7 @@ namespace FitTech.Tests.Tests.Api.V1.Login.ChangePassword
             var request = RequestChangePasswordBuilder.Build();
            request.CurrentPassword = _employee.Password;
 
-            var response = await PutRequest(METODH, request, token);
+            var response = await PutRequest(ApiRoutes.Login.ChangePassword, request, token);
 
             response.StatusCode.Should().Be(System.Net.HttpStatusCode.Unauthorized);
         }
@@ -139,7 +139,7 @@ namespace FitTech.Tests.Tests.Api.V1.Login.ChangePassword
             var request = RequestChangePasswordBuilder.Build();
             request.CurrentPassword = _student.Password;
 
-            var response = await PutRequest(METODH, request, token);
+            var response = await PutRequest(ApiRoutes.Login.ChangePassword, request, token);
 
             response.StatusCode.Should().Be(System.Net.HttpStatusCode.Unauthorized);
         }

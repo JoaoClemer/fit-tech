@@ -1,8 +1,7 @@
-﻿using FitTech.Exceptions;
-using FitTech.Infrastructure.Context;
+﻿using FitTech.Api;
+using FitTech.Exceptions;
 using FitTech.Tests.Utils.Requests;
 using FluentAssertions;
-using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
 using Xunit;
 
@@ -10,20 +9,24 @@ namespace FitTech.Tests.Tests.Api.V1.Student.Create
 {
     public class CreateStudentApiTest : ControllerBase
     {
-        private const string METODH = "student";
+        private Domain.Entities.Employee _admEmployee;
+        private Domain.Entities.Employee _basicEmployee;
         public CreateStudentApiTest(FitTechWebApplicationFactory<Program> factory) : base(factory)
         {
-            var teste = factory.Services.GetService(typeof(FitTechContext));
+            _admEmployee = factory.GetAdmEmployee();
+            _basicEmployee = factory.GetEmployee();
         }
 
         [Fact]
         public async Task Valid_Success()
         {
+            var token = await Login(_admEmployee.EmailAddress, _admEmployee.Password, Comunication.Enum.UserTypeDTO.Employee);
+
             var request = RequestCreateStudentBuilder.Build();
             request.Address = RequestRegisterAddressBuilder.Build();
             request.GymId = 1;
 
-            var response = await PostRequest(METODH, request);
+            var response = await PostRequest(ApiRoutes.Student.CreateStudent, request, token);
 
             await using var bodyResponse = await response.Content.ReadAsStreamAsync();
 
@@ -39,11 +42,13 @@ namespace FitTech.Tests.Tests.Api.V1.Student.Create
         [Fact]
         public async Task Valid_Error_Invalid_Gym()
         {
+            var token = await Login(_admEmployee.EmailAddress, _admEmployee.Password, Comunication.Enum.UserTypeDTO.Employee);
+
             var request = RequestCreateStudentBuilder.Build();
             request.Address = RequestRegisterAddressBuilder.Build();
             request.GymId = 0;
 
-            var response = await PostRequest(METODH, request);
+            var response = await PostRequest(ApiRoutes.Student.CreateStudent, request, token);
 
             await using var bodyResponse = await response.Content.ReadAsStreamAsync();
 
@@ -54,6 +59,20 @@ namespace FitTech.Tests.Tests.Api.V1.Student.Create
             errors.Should().HaveCount(2)
                 .And.Contain(e => e.GetString().Equals(ResourceErrorMessages.EMPTY_GYM_ID))
                 .And.Contain(e => e.GetString().Equals(ResourceErrorMessages.GYM_NOT_FOUND));
+        }
+
+        [Fact]
+        public async Task Valid_Error_Not_An_Administrator()
+        {
+            var token = await Login(_basicEmployee.EmailAddress, _basicEmployee.Password, Comunication.Enum.UserTypeDTO.Employee);
+
+            var request = RequestCreateStudentBuilder.Build();
+            request.Address = RequestRegisterAddressBuilder.Build();
+            request.GymId = 1;
+
+            var response = await PostRequest(ApiRoutes.Student.CreateStudent, request, token);
+            response.StatusCode.Should().Be(System.Net.HttpStatusCode.Forbidden);
+
         }
     }
 }

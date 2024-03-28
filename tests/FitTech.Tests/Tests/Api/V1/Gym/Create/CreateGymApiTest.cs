@@ -1,4 +1,5 @@
-﻿using FitTech.Exceptions;
+﻿using FitTech.Api;
+using FitTech.Exceptions;
 using FitTech.Tests.Utils.Requests;
 using FluentAssertions;
 using System.Text.Json;
@@ -8,7 +9,6 @@ namespace FitTech.Tests.Tests.Api.V1.Gym.Create
 {
     public class CreateGymApiTest : ControllerBase
     {
-        private const string METODH = "gym";
         public CreateGymApiTest(FitTechWebApplicationFactory<Program> factory) : base(factory)
         {
             
@@ -20,7 +20,7 @@ namespace FitTech.Tests.Tests.Api.V1.Gym.Create
             var request = RequestCreateGymBuilder.Build();
             request.Address = RequestRegisterAddressBuilder.Build();
 
-            var response = await PostRequest(METODH, request);
+            var response = await PostRequest(ApiRoutes.Gym.CreateGym, request);
 
             await using var bodyResponse = await response.Content.ReadAsStreamAsync();
 
@@ -38,7 +38,7 @@ namespace FitTech.Tests.Tests.Api.V1.Gym.Create
             request.Address = RequestRegisterAddressBuilder.Build();
             request.Name = string.Empty;
 
-            var response = await PostRequest(METODH, request);
+            var response = await PostRequest(ApiRoutes.Gym.CreateGym, request);
 
             await using var bodyResponse = await response.Content.ReadAsStreamAsync();
 

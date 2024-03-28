@@ -1,4 +1,5 @@
-﻿using FitTech.Comunication.Enum;
+﻿using FitTech.Api;
+using FitTech.Comunication.Enum;
 using FitTech.Comunication.Requests.Login;
 using FitTech.Exceptions;
 using Newtonsoft.Json;
@@ -44,7 +45,7 @@ namespace FitTech.Tests.Tests.Api.V1
                 Password = password
             };
 
-            var response = await PostRequest("login", request);
+            var response = await PostRequest(ApiRoutes.Login.DoLogin, request);
 
             await using var responseBody = await response.Content.ReadAsStreamAsync();
 
