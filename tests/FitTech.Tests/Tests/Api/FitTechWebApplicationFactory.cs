@@ -6,15 +6,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using static FitTech.Api.ApiRoutes;
 
 namespace FitTech.Tests.Tests.Api
 {
     public class FitTechWebApplicationFactory<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
     {
-        private Student _student = new Student();
-        private Employee _employee = new Employee();
-        private Employee _admEmployee = new Employee();
-        private Plan _plan = new Plan();
+        private Domain.Entities.Student _student = new Domain.Entities.Student();
+        private Domain.Entities.Employee _employee = new Domain.Entities.Employee();
+        private Domain.Entities.Employee _admEmployee = new Domain.Entities.Employee();
+        private Domain.Entities.Plan _plan = new Domain.Entities.Plan();
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
             builder.UseEnvironment("Test")
@@ -49,6 +50,7 @@ namespace FitTech.Tests.Tests.Api
 
             SeedGyms(context);
             SeedStudents(context);
+            SeedStudentList(context);
             SeedEmployees(context);
             SeedPlans(context);
 
@@ -63,6 +65,7 @@ namespace FitTech.Tests.Tests.Api
         private async void SeedStudents(FitTechContext context)
         {
             var student = StudentSeedDataFactory.BuildSimpleStudent();
+            _student.Name = student.Name;
             _student.EmailAddress = student.EmailAddress;
             _student.Password = student.Password;
 
@@ -73,9 +76,21 @@ namespace FitTech.Tests.Tests.Api
             await context.SaveChangesAsync();
         }
 
+        private async void SeedStudentList(FitTechContext context)
+        {
+            var gym = await context.Gyms.FirstAsync();
+            var students = StudentSeedDataFactory.BuildStudentList(5,5);
+
+            students.ToList().ForEach(s => s.Gym = gym);
+            students.ToList().ForEach(s => s.Password = PasswordEncryptorBuilder.Instance().Encrypt(s.Password));
+
+            await context.Students.AddRangeAsync(students);
+            await context.SaveChangesAsync();
+        }
+
         private async void SeedEmployees(FitTechContext context)
         {
-            var employees = new List<Employee>();
+            var employees = new List<Domain.Entities.Employee>();
 
             var simpleEmployee = EmployeeSeedDataFactory.BuildSimpleEmployee();
             _employee.EmailAddress = simpleEmployee.EmailAddress;
@@ -110,12 +125,12 @@ namespace FitTech.Tests.Tests.Api
             await context.SaveChangesAsync();
         }
 
-        public Student GetStudent() { return _student; }
+        public Domain.Entities.Student GetStudent() { return _student; }
 
-        public Employee GetEmployee() { return _employee; }
+        public Domain.Entities.Employee GetEmployee() { return _employee; }
 
-        public Employee GetAdmEmployee() { return _admEmployee; }
+        public Domain.Entities.Employee GetAdmEmployee() { return _admEmployee; }
 
-        public Plan GetPlan() { return _plan; }
+        public Domain.Entities.Plan GetPlan() { return _plan; }
     }
 }
