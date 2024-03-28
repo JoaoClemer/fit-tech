@@ -25,6 +25,8 @@
         public static class Student
         {
             public const string CreateStudent = Base + "student/";
+
+            public const string GetAllStudentsOfGym = Base + "student/";
         }
 
         public static class Gym

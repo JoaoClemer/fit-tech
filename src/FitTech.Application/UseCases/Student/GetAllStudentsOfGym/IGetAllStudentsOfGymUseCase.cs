@@ -6,6 +6,6 @@ namespace FitTech.Application.UseCases.Student.GetAllStudentsOfGym
 {
     public interface IGetAllStudentsOfGymUseCase
     {
-        Task<ResponseListForTableDTO<ResponseStudentInList>> Execute(RequestFilterDTO filter);
+        Task<ResponseListForTableDTO<ResponseStudentInListDTO>> Execute(RequestFilterDTO filter);
     }
 }

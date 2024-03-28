@@ -1,6 +1,6 @@
 ﻿namespace FitTech.Comunication.Responses.Student
 {
-    public class ResponseStudentInList
+    public class ResponseStudentInListDTO
     {
         public string Name { get; set; }
 

@@ -3,6 +3,7 @@ using FitTech.Application.Services.LoggedUser;
 using FitTech.Comunication.Requests.Shared;
 using FitTech.Comunication.Responses.Shared;
 using FitTech.Comunication.Responses.Student;
+using FitTech.Domain.Repositories.Employee;
 using FitTech.Domain.Repositories.Student;
 
 namespace FitTech.Application.UseCases.Student.GetAllStudentsOfGym
@@ -12,13 +13,13 @@ namespace FitTech.Application.UseCases.Student.GetAllStudentsOfGym
         private readonly IStudentReadOnlyRepository _studentReadOnlyRepository;
         private readonly ILoggedUser _loggedUser;
         private readonly IMapper _mapper;
-        public GetAllStudentsOfGymUseCase(IStudentReadOnlyRepository studentReadOnlyRepository, ILoggedUser loggedUser, IMapper mapper)
+        public GetAllStudentsOfGymUseCase(IStudentReadOnlyRepository studentReadOnlyRepository, ILoggedUser loggedUser, IMapper mapper, IEmployeeReadOnlyRepository employeeReadOnlyRepository)
         {
             _studentReadOnlyRepository = studentReadOnlyRepository;
             _loggedUser = loggedUser;
             _mapper = mapper;
         }
-        public async Task<ResponseListForTableDTO<ResponseStudentInList>> Execute(RequestFilterDTO filter)
+        public async Task<ResponseListForTableDTO<ResponseStudentInListDTO>> Execute(RequestFilterDTO filter)
         {
             var loggedUser = await this._loggedUser.GetLoggedUser();
 
@@ -29,7 +30,7 @@ namespace FitTech.Application.UseCases.Student.GetAllStudentsOfGym
             else if (filter.OnlyIsNotActive)
                 allStudentsOfGym = allStudentsOfGym.Where(s => s.StudentPlan.Equals(null) || s.StudentPlan.IsActive.Equals(false)).ToList();
 
-            if (string.IsNullOrEmpty(filter.FilterText))
+            if (!string.IsNullOrEmpty(filter.FilterText))
                 allStudentsOfGym = allStudentsOfGym.Where(s => s.Name.ToUpper().Contains(filter.FilterText.ToUpper())).ToList();
 
             var studentsPerPage = 10;
@@ -37,9 +38,9 @@ namespace FitTech.Application.UseCases.Student.GetAllStudentsOfGym
 
             allStudentsOfGym = allStudentsOfGym.Skip((filter.PageNumber - 1) * studentsPerPage).Take(studentsPerPage).ToList();
 
-            var studentList = _mapper.Map<List<ResponseStudentInList>>(allStudentsOfGym);
+            var studentList = _mapper.Map<List<ResponseStudentInListDTO>>(allStudentsOfGym);
 
-            var response = new ResponseListForTableDTO<ResponseStudentInList>(studentList, filter.PageNumber, studentsPerPage, pageCount);
+            var response = new ResponseListForTableDTO<ResponseStudentInListDTO>(studentList, filter.PageNumber, studentsPerPage, pageCount);
 
             return response;
         }

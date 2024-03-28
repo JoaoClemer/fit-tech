@@ -1,6 +1,11 @@
 ﻿using FitTech.Application.UseCases.Student.Create;
+using FitTech.Application.UseCases.Student.GetAllStudentsOfGym;
+using FitTech.Comunication.Requests.Shared;
 using FitTech.Comunication.Requests.Student;
+using FitTech.Comunication.Responses.Shared;
 using FitTech.Comunication.Responses.Student;
+using FitTech.Domain.Enum;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FitTech.Api.Controllers
@@ -9,6 +14,7 @@ namespace FitTech.Api.Controllers
     public class StudentController : ControllerBase
     {
 
+        [Authorize(Roles = nameof(EmployeeType.Administrator))]
         [HttpPost( ApiRoutes.Student.CreateStudent )]
         [ProducesResponseType(typeof(ResponseCreateStudentDTO), StatusCodes.Status201Created)]
         public async Task<IActionResult> CreateStudent(
@@ -18,6 +24,18 @@ namespace FitTech.Api.Controllers
             var result = await useCase.Execute(request);
 
             return Created(string.Empty, result);
+        }
+
+        [Authorize(Roles = $"{nameof(EmployeeType.Administrator)},{nameof(EmployeeType.Teacher)}")]
+        [HttpGet( ApiRoutes.Student.GetAllStudentsOfGym )]
+        [ProducesResponseType(typeof(ResponseListForTableDTO<ResponseStudentInListDTO>), StatusCodes.Status200OK)]        
+        public async Task<IActionResult> GetAllStudentsOfGym(
+            [FromServices] IGetAllStudentsOfGymUseCase useCase,
+            [FromQuery] RequestFilterDTO filter)
+        {
+            var result = await useCase.Execute(filter);
+
+            return Ok(result);
         }
     }
 }

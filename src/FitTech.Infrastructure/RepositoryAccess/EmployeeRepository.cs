@@ -29,6 +29,7 @@ namespace FitTech.Infrastructure.RepositoryAccess
         {
             return await _context.Employees.
                 AsNoTracking().
+                Include(e => e.Gym).
                 FirstOrDefaultAsync( e => e.EmailAddress.Equals(email) );
         }
 

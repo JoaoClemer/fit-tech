@@ -2,7 +2,7 @@
 {
     public class RequestFilterDTO
     {
-        public string FilterText { get; set; }
+        public string ?FilterText { get; set; }
 
         public bool OnlyIsActive { get; set; }
 
