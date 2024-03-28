@@ -1,4 +1,5 @@
-﻿using FitTech.Exceptions;
+﻿using FitTech.Api;
+using FitTech.Exceptions;
 using FitTech.Tests.Utils.Requests;
 using FluentAssertions;
 using System.Text.Json;
@@ -8,8 +9,6 @@ namespace FitTech.Tests.Tests.Api.V1.Employee.Create
 {
     public class CreateEmployeeApiTest : ControllerBase
     {
-        private const string METODH = "employee";
-
         public CreateEmployeeApiTest(FitTechWebApplicationFactory<Program> factory) : base(factory)
         {
             
@@ -22,7 +21,7 @@ namespace FitTech.Tests.Tests.Api.V1.Employee.Create
             request.Address = RequestRegisterAddressBuilder.Build();
             request.GymId = 1;
 
-            var response = await PostRequest(METODH, request);
+            var response = await PostRequest(ApiRoutes.Employee.CreateEmployee, request);
 
             await using var bodyResponse = await response.Content.ReadAsStreamAsync();
 
@@ -42,7 +41,7 @@ namespace FitTech.Tests.Tests.Api.V1.Employee.Create
             request.Address = RequestRegisterAddressBuilder.Build();
             request.GymId = 0;
 
-            var response = await PostRequest(METODH, request);
+            var response = await PostRequest(ApiRoutes.Employee.CreateEmployee, request);
 
             await using var bodyResponse = await response.Content.ReadAsStreamAsync();
 

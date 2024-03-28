@@ -1,4 +1,5 @@
-﻿using FitTech.Comunication.Requests.Login;
+﻿using FitTech.Api;
+using FitTech.Comunication.Requests.Login;
 using FitTech.Exceptions;
 using FitTech.Tests.Utils.Requests;
 using FluentAssertions;
@@ -9,7 +10,6 @@ namespace FitTech.Tests.Tests.Api.V1.Login.DoLogin
 {
     public class DoLoginApiTest : ControllerBase
     {
-        private const string METODH = "login";
         private Domain.Entities.Student _student;
         private Domain.Entities.Employee _employee;
 
@@ -29,7 +29,7 @@ namespace FitTech.Tests.Tests.Api.V1.Login.DoLogin
                 UserType = Comunication.Enum.UserTypeDTO.Student
             };
                      
-            var response = await PostRequest(METODH, request);
+            var response = await PostRequest(ApiRoutes.Login.DoLogin, request);
 
             await using var bodyResponse = await response.Content.ReadAsStreamAsync();
 
@@ -51,7 +51,7 @@ namespace FitTech.Tests.Tests.Api.V1.Login.DoLogin
                 UserType = Comunication.Enum.UserTypeDTO.Employee
             };
 
-            var response = await PostRequest(METODH, request);
+            var response = await PostRequest(ApiRoutes.Login.DoLogin, request);
 
             await using var bodyResponse = await response.Content.ReadAsStreamAsync();
 
@@ -73,7 +73,7 @@ namespace FitTech.Tests.Tests.Api.V1.Login.DoLogin
                 UserType = Comunication.Enum.UserTypeDTO.Employee
             };
 
-            var response = await PostRequest(METODH, request);
+            var response = await PostRequest(ApiRoutes.Login.DoLogin, request);
 
             await using var bodyResponse = await response.Content.ReadAsStreamAsync();
 

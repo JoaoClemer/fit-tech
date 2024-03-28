@@ -8,10 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace FitTech.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     public class LoginController : ControllerBase
     {
-        [HttpPost]
+        [HttpPost( ApiRoutes.Login.DoLogin )]
         [ProducesResponseType(typeof(ResponseDoLoginDTO), StatusCodes.Status200OK)]
         public async Task<IActionResult> Login(
             [FromServices] IDoLoginUseCase useCase,
@@ -22,8 +21,7 @@ namespace FitTech.Api.Controllers
             return Ok(result);
         }
 
-        [Route("change-password")]
-        [HttpPut]
+        [HttpPut( ApiRoutes.Login.ChangePassword )]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ServiceFilter(typeof(AuthUserFilter))]
         public async Task<IActionResult> ChangePassword(

@@ -1,10 +1,13 @@
-﻿using FitTech.Comunication.Enum;
+﻿using FitTech.Api;
+using FitTech.Comunication.Enum;
 using FitTech.Comunication.Requests.Login;
 using FitTech.Exceptions;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System.Globalization;
 using System.Text;
 using System.Text.Json;
+using System.Web;
 using Xunit;
 
 namespace FitTech.Tests.Tests.Api.V1
@@ -35,6 +38,15 @@ namespace FitTech.Tests.Tests.Api.V1
             return await _httpClient.PutAsync(metodo, new StringContent(jsonString, Encoding.UTF8, "application/json"));
         }
 
+        protected async Task<HttpResponseMessage> GetRequest(string metodo, string queryString = null, string token = "")
+        {
+            AuthorizeRequest(token);
+            if (queryString is not null)
+                metodo = metodo + "?" + queryString;
+
+            return await _httpClient.GetAsync(metodo);
+        }
+
         protected async Task<string> Login(string email, string password, UserTypeDTO userType)
         {
             var request = new RequestDoLoginDTO
@@ -44,7 +56,7 @@ namespace FitTech.Tests.Tests.Api.V1
                 Password = password
             };
 
-            var response = await PostRequest("login", request);
+            var response = await PostRequest(ApiRoutes.Login.DoLogin, request);
 
             await using var responseBody = await response.Content.ReadAsStreamAsync();
 

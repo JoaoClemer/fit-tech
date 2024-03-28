@@ -9,12 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace FitTech.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     [ServiceFilter(typeof(AuthUserFilter))]
     public class PlanController : ControllerBase
     {
         [Authorize(Roles = nameof(EmployeeType.Administrator))]
-        [HttpPost]
+        [HttpPost( ApiRoutes.Plan.CreatePlan )]
         [ProducesResponseType( StatusCodes.Status201Created)]
         public async Task<IActionResult> CreatePlan(
             [FromServices] ICreatePlanUseCase useCase,

@@ -1,4 +1,5 @@
-﻿using FitTech.Exceptions;
+﻿using FitTech.Api;
+using FitTech.Exceptions;
 using FitTech.Tests.Utils.Requests;
 using FluentAssertions;
 using System.Text.Json;
@@ -7,8 +8,7 @@ using Xunit;
 namespace FitTech.Tests.Tests.Api.V1.Plan.Create
 {
     public class CreatePlanApiTest : ControllerBase
-    {
-        private const string METODH = "plan";
+    {      
         private Domain.Entities.Employee _admEmployee;
         private Domain.Entities.Employee _basicEmployee;
         private Domain.Entities.Plan _plan;
@@ -28,7 +28,7 @@ namespace FitTech.Tests.Tests.Api.V1.Plan.Create
             var request = RequestCreatePlanBuilder.Build();
             request.GymId = 1;
 
-            var response = await PostRequest(METODH, request, token);
+            var response = await PostRequest(ApiRoutes.Plan.CreatePlan, request, token);
 
             await using var bodyResponse = await response.Content.ReadAsStreamAsync();
 
@@ -49,7 +49,7 @@ namespace FitTech.Tests.Tests.Api.V1.Plan.Create
             var request = RequestCreatePlanBuilder.Build();
             request.GymId = 1;
 
-            var response = await PostRequest(METODH, request, token);
+            var response = await PostRequest(ApiRoutes.Plan.CreatePlan, request, token);
             response.StatusCode.Should().Be(System.Net.HttpStatusCode.Forbidden);
 
         }
@@ -62,7 +62,7 @@ namespace FitTech.Tests.Tests.Api.V1.Plan.Create
             var request = RequestCreatePlanBuilder.Build();
             request.GymId = 2221;
 
-            var response = await PostRequest(METODH, request, token);
+            var response = await PostRequest(ApiRoutes.Plan.CreatePlan, request, token);
 
             await using var bodyResponse = await response.Content.ReadAsStreamAsync();
 
@@ -84,7 +84,7 @@ namespace FitTech.Tests.Tests.Api.V1.Plan.Create
             request.GymId = 1;
             request.Name = _plan.Name;
 
-            var response = await PostRequest(METODH, request, token);
+            var response = await PostRequest(ApiRoutes.Plan.CreatePlan, request, token);
 
             await using var bodyResponse = await response.Content.ReadAsStreamAsync();
 

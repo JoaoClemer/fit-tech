@@ -19,6 +19,15 @@ namespace FitTech.Infrastructure.RepositoryAccess
             await _context.Students.AddAsync(student);
         }
 
+        public async Task<ICollection<Student>> GetAllStudentsOfGym(int gymId)
+        {
+            return await _context.Students
+                .AsNoTracking()
+                .Include(x => x.StudentPlan)
+                .Where(s => s.Gym.Id.Equals(gymId))
+                .ToListAsync();
+        }
+
         public async Task<Student?> GetStudentByCPF(string cpf)
         {
             return await _context.Students
@@ -30,6 +39,7 @@ namespace FitTech.Infrastructure.RepositoryAccess
         {
             return await _context.Students
                 .AsNoTracking()
+                .Include(s => s.Gym)
                 .FirstOrDefaultAsync(s => s.EmailAddress.Equals(email));
         }
 
