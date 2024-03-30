@@ -27,6 +27,7 @@ namespace FitTech.Application.Services.AutoMapper
                 .ForMember(entity => entity.Gym, config => config.Ignore());
 
             CreateMap<Student, ResponseStudentInListDTO>()
+                .ForMember(dto => dto.Id, config => config.MapFrom(entity => entity.Id))
                 .ForMember(dto => dto.Name, config => config.MapFrom(entity => entity.Name))
                 .ForMember(dto => dto.Email, config => config.MapFrom(entity => entity.EmailAddress))
                 .ForMember(dto => dto.PlanName, config => config.MapFrom(entity => entity.StudentPlan.Plan.Name))

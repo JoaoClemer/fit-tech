@@ -23,16 +23,17 @@ namespace FitTech.Application.UseCases.Student.GetAllStudentsOfGym
             var loggedUser = await this._loggedUser.GetLoggedUser();
 
             var allStudentsOfGym = await _studentReadOnlyRepository.GetAllStudentsOfGym(loggedUser.Gym.Id);
+            var inativeStudents = allStudentsOfGym.Where(s => s.StudentPlan != null && s.StudentPlan.IsActive.Equals(false)).ToList();
 
             if (filter.OnlyIsActive)
                 allStudentsOfGym = allStudentsOfGym.Where(s => s.StudentPlan != null && s.StudentPlan.IsActive.Equals(true)).ToList();
             else if (filter.OnlyIsNotActive)
-                allStudentsOfGym = allStudentsOfGym.Where(s => s.StudentPlan.Equals(null) || s.StudentPlan.IsActive.Equals(false)).ToList();
+                allStudentsOfGym = allStudentsOfGym.Where(s => s.StudentPlan == null || inativeStudents.Contains(s)).ToList();
 
             if (!string.IsNullOrEmpty(filter.FilterText))
                 allStudentsOfGym = allStudentsOfGym.Where(s => s.Name.ToUpper().Contains(filter.FilterText.ToUpper())).ToList();
 
-            var studentsPerPage = 10;
+            var studentsPerPage = 6;
             var pageCount = (allStudentsOfGym.Count() + studentsPerPage - 1) / studentsPerPage;
 
             allStudentsOfGym = allStudentsOfGym.Skip((filter.PageNumber - 1) * studentsPerPage).Take(studentsPerPage).ToList();
