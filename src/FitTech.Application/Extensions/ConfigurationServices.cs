@@ -1,6 +1,7 @@
 ﻿using FitTech.Application.Services.Cryptography;
 using FitTech.Application.Services.LoggedUser;
 using FitTech.Application.Services.Token;
+using FitTech.Application.UseCases.Dashboard.GetStudentDashboard;
 using FitTech.Application.UseCases.Employee.Create;
 using FitTech.Application.UseCases.Gym.Create;
 using FitTech.Application.UseCases.Login.ChangePassword;
@@ -48,7 +49,8 @@ namespace FitTech.Application.Extensions
                .AddScoped<IDoLoginUseCase, DoLoginUseCase>()
                .AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>()
                .AddScoped<ICreatePlanUseCase, CreatePlanUseCase>()
-               .AddScoped<IGetAllStudentsOfGymUseCase, GetAllStudentsOfGymUseCase>();
+               .AddScoped<IGetAllStudentsOfGymUseCase, GetAllStudentsOfGymUseCase>()
+               .AddScoped<IGetStudentDashboardUseCase, GetStudentDashboardUseCase>();
         }
 
     }
