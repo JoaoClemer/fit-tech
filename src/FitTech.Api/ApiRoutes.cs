@@ -33,5 +33,10 @@
         {
             public const string CreateGym = Base + "gym/";
         }
+
+        public static class Dashboard
+        {
+            public const string GetStudentDashboard = Base + "dashboard/student";
+        }
     }
 }

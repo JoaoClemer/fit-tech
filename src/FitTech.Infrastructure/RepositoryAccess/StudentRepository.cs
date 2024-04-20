@@ -24,6 +24,7 @@ namespace FitTech.Infrastructure.RepositoryAccess
             return await _context.Students
                 .AsNoTracking()
                 .Include(x => x.StudentPlan)
+                .ThenInclude(p => p.Plan)
                 .Where(s => s.Gym.Id.Equals(gymId))
                 .ToListAsync();
         }

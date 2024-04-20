@@ -21,11 +21,13 @@ namespace FitTech.Application.UseCases.Dashboard.GetStudentDashboard
 
             var allStudentsOfGym = await _studentReadOnlyRepository.GetAllStudentsOfGym(loggedUser.Gym.Id);
 
-            var studentsActive = allStudentsOfGym.Where(s => s.StudentPlan != null && s.StudentPlan.IsActive).Count();
+            var studentsActive = allStudentsOfGym.Where(s => s.StudentPlan != null && s.StudentPlan.IsActive).ToList();
 
             var studentsInative = allStudentsOfGym.Where(s => s.StudentPlan != null && s.StudentPlan.IsActive == false).Count();
 
             var studentsWithoutAPlan = allStudentsOfGym.Where(s => s.StudentPlan == null).Count();
+
+            var amountOfActivePlans = studentsActive.Select(s => s.StudentPlan.Plan.Price).ToList().Sum();
 
             var response = new ResponseDashboardDTO
             {
@@ -34,19 +36,24 @@ namespace FitTech.Application.UseCases.Dashboard.GetStudentDashboard
                 {
                     new ResponseInformationDTO
                     {
-                        Title = "Active students",
-                        Value = studentsActive.ToString()
+                        Title = "Alunos ativos",
+                        Value = studentsActive.Count().ToString()
                     },
                     new ResponseInformationDTO
                     {
-                        Title = "Inactive  students",
+                        Title = "Alunos inativos",
                         Value = studentsInative.ToString()
                     },
                     new ResponseInformationDTO
                     {
-                        Title = "Students without a plan",
+                        Title = "Alunos sem plano",
                         Value = studentsWithoutAPlan.ToString()
                     },
+                    new ResponseInformationDTO
+                    {
+                        Title = "Valor total ativos",
+                        Value = amountOfActivePlans.ToString("N3")
+                    }
                 }
             };
 
