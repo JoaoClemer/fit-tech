@@ -65,7 +65,11 @@ namespace FitTech.Tests.Utils.Repositories.Student
                         Name = "João",
                         StudentPlan = new Domain.Entities.StudentPlan
                         {
-                            IsActive = true
+                            IsActive = true,
+                            Plan = new Domain.Entities.Plan
+                            {
+                                Price = 100
+                            }
                         }
                     },
                     new Domain.Entities.Student
@@ -73,7 +77,11 @@ namespace FitTech.Tests.Utils.Repositories.Student
                         Name = "Pedro",
                         StudentPlan = new Domain.Entities.StudentPlan
                         {
-                            IsActive = false
+                            IsActive = false,
+                            Plan = new Domain.Entities.Plan
+                            {
+                                Price = 100
+                            }
                         }
                     },
                 };
