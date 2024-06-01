@@ -9,6 +9,7 @@ using FitTech.Application.UseCases.Login.DoLogin;
 using FitTech.Application.UseCases.Plan.Create;
 using FitTech.Application.UseCases.Student.Create;
 using FitTech.Application.UseCases.Student.GetAllStudentsOfGym;
+using FitTech.Application.UseCases.Student.GetStudentById;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -50,7 +51,8 @@ namespace FitTech.Application.Extensions
                .AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>()
                .AddScoped<ICreatePlanUseCase, CreatePlanUseCase>()
                .AddScoped<IGetAllStudentsOfGymUseCase, GetAllStudentsOfGymUseCase>()
-               .AddScoped<IGetStudentDashboardUseCase, GetStudentDashboardUseCase>();
+               .AddScoped<IGetStudentDashboardUseCase, GetStudentDashboardUseCase>()
+               .AddScoped<IGetStudentByIdUseCase, GetStudentByIdUseCase>();
         }
 
     }

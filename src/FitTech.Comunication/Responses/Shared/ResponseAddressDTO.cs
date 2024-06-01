@@ -1,7 +1,9 @@
-﻿namespace FitTech.Comunication.Requests.Address
+﻿namespace FitTech.Comunication.Responses.Shared
 {
-    public class RequestRegisterAddressDTO
+    public class ResponseAddressDTO
     {
+        public int Id { get; set; }
+        public DateTime CreateDate { get; set; }
         public string Street { get; set; }
         public string City { get; set; }
         public string State { get; set; }

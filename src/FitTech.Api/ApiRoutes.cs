@@ -27,6 +27,8 @@
             public const string CreateStudent = Base + "student/";
 
             public const string GetAllStudentsOfGym = Base + "student/";
+
+            public const string GetStudentById = Base + "student/{studentId}";
         }
 
         public static class Gym

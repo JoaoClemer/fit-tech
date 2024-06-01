@@ -34,6 +34,8 @@ namespace FitTech.Application.Services.AutoMapper
                 .ForMember(dto => dto.PlanIsActive, config => config.MapFrom(entity => entity.StudentPlan.IsActive))
                 .ForMember(dto => dto.PlanExpirationDate, config => config.MapFrom(entity => entity.StudentPlan.ExpirationDate));
 
+            CreateMap<Student, ResponseStudentInformationsDTO>();
+
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using FitTech.Application.UseCases.Student.Create;
 using FitTech.Application.UseCases.Student.GetAllStudentsOfGym;
+using FitTech.Application.UseCases.Student.GetStudentById;
 using FitTech.Comunication.Requests.Shared;
 using FitTech.Comunication.Requests.Student;
 using FitTech.Comunication.Responses.Shared;
@@ -37,5 +38,18 @@ namespace FitTech.Api.Controllers
 
             return Ok(result);
         }
+
+        [Authorize(Roles = $"{nameof(EmployeeType.Administrator)},{nameof(EmployeeType.Teacher)}")]
+        [HttpGet(ApiRoutes.Student.GetStudentById)]
+        [ProducesResponseType(typeof(ResponseStudentInformationsDTO), StatusCodes.Status200OK)]
+        public async Task<IActionResult>GetStudentById(
+            [FromRoute] int studentId,
+            [FromServices] IGetStudentByIdUseCase useCase)
+        {
+            var result = await useCase.Execute(studentId);
+
+            return Ok(result);
+        }
+
     }
 }

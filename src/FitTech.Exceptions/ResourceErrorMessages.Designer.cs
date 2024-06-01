@@ -376,6 +376,15 @@ namespace FitTech.Exceptions {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a This student was not found..
+        /// </summary>
+        public static string STUDENT_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("STUDENT_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Unknow error..
         /// </summary>
         public static string UNKNOW_ERROR {

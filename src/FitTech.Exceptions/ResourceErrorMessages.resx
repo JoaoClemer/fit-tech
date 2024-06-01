@@ -222,6 +222,9 @@
   <data name="STUDENT_EMAIL_IN_USE" xml:space="preserve">
     <value>A student is already using this e-mail.</value>
   </data>
+  <data name="STUDENT_NOT_FOUND" xml:space="preserve">
+    <value>This student was not found.</value>
+  </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Unknow error.</value>
   </data>
