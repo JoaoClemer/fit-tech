@@ -34,9 +34,9 @@ namespace FitTech.Tests.Tests.Api.V1.Student.GetAllStudentsOfGym
             var result = JsonConvert.DeserializeObject<ResponseListForTableDTO<ResponseStudentInListDTO>>(bodyResponse);
 
             result.Should().NotBeNull();
-            result.Data.Should().NotBeNullOrEmpty().And.HaveCount(10);
+            result.Data.Should().NotBeNullOrEmpty().And.HaveCount(6);
             result.CurrentPage.Should().Be(1);
-            result.PageSize.Should().Be(10);
+            result.PageSize.Should().Be(6);
             result.PageCount.Should().Be(2);
 
         }
@@ -60,7 +60,7 @@ namespace FitTech.Tests.Tests.Api.V1.Student.GetAllStudentsOfGym
             result.Data.Should().NotBeNullOrEmpty().And.HaveCount(6);
             result.Data.ToList().ForEach(s => s.PlanIsActive.Should().BeTrue());
             result.CurrentPage.Should().Be(1);
-            result.PageSize.Should().Be(10);
+            result.PageSize.Should().Be(6);
             result.PageCount.Should().Be(1);
 
         }
@@ -84,7 +84,7 @@ namespace FitTech.Tests.Tests.Api.V1.Student.GetAllStudentsOfGym
             result.Data.Should().NotBeNullOrEmpty().And.HaveCount(5);
             result.Data.ToList().ForEach(s => s.PlanIsActive.Should().BeFalse());
             result.CurrentPage.Should().Be(1);
-            result.PageSize.Should().Be(10);
+            result.PageSize.Should().Be(6);
             result.PageCount.Should().Be(1);
 
         }
@@ -108,7 +108,7 @@ namespace FitTech.Tests.Tests.Api.V1.Student.GetAllStudentsOfGym
             result.Data.Should().NotBeNullOrEmpty().And.HaveCount(1);
             result.Data.ToList().ForEach(s => s.Name.Should().Be(_student.Name));
             result.CurrentPage.Should().Be(1);
-            result.PageSize.Should().Be(10);
+            result.PageSize.Should().Be(6);
             result.PageCount.Should().Be(1);
 
         }

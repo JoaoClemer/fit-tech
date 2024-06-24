@@ -4,6 +4,7 @@ using FitTech.Comunication.Requests.Employee;
 using FitTech.Comunication.Requests.Gym;
 using FitTech.Comunication.Requests.Plan;
 using FitTech.Comunication.Requests.Student;
+using FitTech.Comunication.Responses.Shared;
 using FitTech.Comunication.Responses.Student;
 using FitTech.Domain.Entities;
 
@@ -35,6 +36,7 @@ namespace FitTech.Application.Services.AutoMapper
                 .ForMember(dto => dto.PlanExpirationDate, config => config.MapFrom(entity => entity.StudentPlan.ExpirationDate));
 
             CreateMap<Student, ResponseStudentInformationsDTO>();
+            CreateMap<Address, ResponseAddressDTO>();
 
         }
     }

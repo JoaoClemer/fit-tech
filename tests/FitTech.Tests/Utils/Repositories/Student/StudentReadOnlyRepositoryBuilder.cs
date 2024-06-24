@@ -41,7 +41,20 @@ namespace FitTech.Tests.Utils.Repositories.Student
         public StudentReadOnlyRepositoryBuilder GetStudentById(int id)
         {
             if (id > 0)
-                _repository.Setup(i => i.GetStudentById(id)).ReturnsAsync(new Domain.Entities.Student());
+                _repository.Setup(i => i.GetStudentById(id)).ReturnsAsync(new Domain.Entities.Student
+                {
+                    Name = "João",
+                    Cpf = "111.111.111-11",
+                    Address = new Domain.Entities.Address
+                    {
+                        City = "São Paulo",
+                        State = "SP",
+                        Street = "Av test",
+                        Number = "1",
+                        Country = "Brasil",
+                        PostalCode = "1111-111"
+                    }
+                });
 
             return this;
         }

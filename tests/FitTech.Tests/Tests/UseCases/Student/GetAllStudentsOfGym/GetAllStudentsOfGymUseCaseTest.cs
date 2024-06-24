@@ -22,7 +22,7 @@ namespace FitTech.Tests.Tests.UseCases.Student.GetAllStudentsOfGym
             response.Should().NotBeNull();
             response.Data.Should().NotBeNullOrEmpty().And.HaveCount(2);
             response.PageCount.Should().Be(1);
-            response.PageSize.Should().Be(10);
+            response.PageSize.Should().Be(6);
             response.CurrentPage.Should().Be(1);
         }
 
@@ -40,7 +40,7 @@ namespace FitTech.Tests.Tests.UseCases.Student.GetAllStudentsOfGym
             response.Data.Should().NotBeNullOrEmpty();
             response.Data.ToList().ForEach(d => d.PlanIsActive.Should().BeTrue());
             response.PageCount.Should().Be(1);
-            response.PageSize.Should().Be(10);
+            response.PageSize.Should().Be(6);
             response.CurrentPage.Should().Be(1);
         }
 
@@ -58,7 +58,7 @@ namespace FitTech.Tests.Tests.UseCases.Student.GetAllStudentsOfGym
             response.Data.Should().NotBeNullOrEmpty();
             response.Data.ToList().ForEach(d => d.PlanIsActive.Should().BeFalse());
             response.PageCount.Should().Be(1);
-            response.PageSize.Should().Be(10);
+            response.PageSize.Should().Be(6);
             response.CurrentPage.Should().Be(1);
         }
 
@@ -76,7 +76,7 @@ namespace FitTech.Tests.Tests.UseCases.Student.GetAllStudentsOfGym
             response.Data.Should().NotBeNullOrEmpty();
             response.Data.ToList().ForEach(d => d.Name.Should().Be("João"));
             response.PageCount.Should().Be(1);
-            response.PageSize.Should().Be(10);
+            response.PageSize.Should().Be(6);
             response.CurrentPage.Should().Be(1);
         }
 
@@ -93,7 +93,7 @@ namespace FitTech.Tests.Tests.UseCases.Student.GetAllStudentsOfGym
             response.Should().NotBeNull();
             response.Data.Should().BeNullOrEmpty();
             response.PageCount.Should().Be(0);
-            response.PageSize.Should().Be(10);
+            response.PageSize.Should().Be(6);
             response.CurrentPage.Should().Be(1);
         }
         private GetAllStudentsOfGymUseCase CreateUseCase(int gymId = 0)

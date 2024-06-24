@@ -47,6 +47,8 @@ namespace FitTech.Infrastructure.RepositoryAccess
         public async Task<Student?> GetStudentById(int id)
         {
             return await _context.Students
+                .AsNoTracking()
+                .Include(s => s.Address)
                 .FirstOrDefaultAsync(s => s.Id.Equals(id));
         }
 

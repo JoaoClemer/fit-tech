@@ -20,7 +20,7 @@ namespace FitTech.Application.UseCases.Student.GetStudentById
             var student = await _studentReadOnlyRepository.GetStudentById(studentId);
 
             if (student == null)
-                throw new FitTechException(ResourceErrorMessages.STUDENT_NOT_FOUND);
+                throw new ValidationErrorsException( new List<string> { ResourceErrorMessages.STUDENT_NOT_FOUND });
 
             var response = _mapper.Map<ResponseStudentInformationsDTO>(student);
 

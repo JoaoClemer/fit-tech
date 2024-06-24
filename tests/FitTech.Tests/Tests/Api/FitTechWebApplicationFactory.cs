@@ -65,9 +65,12 @@ namespace FitTech.Tests.Tests.Api
         private async void SeedStudents(FitTechContext context)
         {
             var student = StudentSeedDataFactory.BuildSimpleStudent();
+            _student.Id = student.Id;
             _student.Name = student.Name;
             _student.EmailAddress = student.EmailAddress;
             _student.Password = student.Password;
+            _student.Cpf = student.Cpf;
+            _student.Address = student.Address;
 
 
             student.Gym = await context.Gyms.FirstAsync();
